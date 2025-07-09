@@ -63,18 +63,6 @@
         "description": "Vive al máximo una de las mejores épocas de tu vida en nuestras residencias de estudiantes en España. Nosotros nos encargamos de todo lo demás"
       }
     },
-    "about": {
-      "url": "conocenos",
-      "text": "Conócenos",
-      "cotown": {
-        "title": "¡Conoce a nuestro equipazo! - Coliving COTOWN",
-        "description": "¿Quieres formar parte del team de Cotown o saber quien hay detrás de todo esto? ¡Bienvenid@!"
-      },
-      "vanguard": {
-        "title": "¡Conoce a nuestro equipazo! - Vanguard Student Housing",
-        "description": "¿Quieres formar parte del team de Vanguard Student Housing o saber quien hay detrás de todo esto? ¡Bienvenid@!"
-      }
-    },
     "advantages": {
       "url": "membership",
       "text": "Membership",

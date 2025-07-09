@@ -62,18 +62,6 @@
         "description": "Live the most of one of the best times of your life in our student residences in Spain. We take care of everything else."
       }
     },
-    "about": {
-      "url": "about-us",
-      "text": "About us",
-      "cotown": {
-        "title": "Meet our amazing team!  - Coliving COTOWN",
-        "description": "Would you like to join the Cotown team or find out who's behind all this? Welcome!"
-      },
-      "vanguard": {
-        "title": "Meet our amazing team! - Vanguard Student Housing",
-        "description": "Would you like to join the Vanguard Student Housing team or find out who's behind all this? Welcome!"
-      }
-    },
     "advantages": {
       "url": "membership",
       "text": "Membership",
