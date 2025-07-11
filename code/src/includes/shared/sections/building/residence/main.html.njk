@@ -53,13 +53,24 @@
 {% block footer %}
 {% set script %}
 // Slider inicio
-new Splide( '#image-carousel', {
+const splidefirst = new Splide( '#image-carousel', {
   type  : 'fade',
   rewind: true,
   perPage: 1,
   pagination: true,
   cover: true,
-}).mount();
+});
+
+// Sliders inicio en grande
+const splidebig = new Splide('#big', { 
+  type: 'loop', 
+  height: '90vh',
+  arrows: true 
+});
+
+// Syncronize and mount
+splidebig.mount();
+splidefirst.mount();
 
 // Slider servicios
 new Splide("#splideServices", {
@@ -137,6 +148,12 @@ var thumbnails = new Splide('#thumbnail-gallery', {
 main.sync(thumbnails);
 main.mount();
 thumbnails.mount();
+
+function thumb(id, target, origin) {
+  document.getElementById(id).style.display = 'flex';
+  target.Components.Move.jump(origin.index);
+  target.go(origin.index, true);
+}
 
 {% include 'shared/sections/common/availability.html.njk' %}
 window.addEventListener("calendar", function(e) {

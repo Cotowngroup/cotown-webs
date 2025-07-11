@@ -2,7 +2,7 @@
 
   <!-- Photo carousel -->
   <section id="image-carousel" class="splide first-slider pure-u-1" aria-label="Beautiful Images">
-    <div class="title-button">
+    <div class="title-button" onclick="thumb('big', splidebig, splidefirst);">
       <h1 class="head6" style="text-align:left;">{{ building | translate('Description', L) | safe }}</h1>
       <div class="head1">{{building.Name}}</div>
       {% if building.Tour %}
@@ -11,7 +11,7 @@
       </button>
       {% endif %}
     </div>     
-    <div class="splide__track">
+    <div class="splide__track" onclick="thumb('big', splidebig, splidefirst);">
       <ul class="splide__list">
         {% for i in building.Photos | find('Image_type', 'eq', 'habitacion') %}
         <li class="splide__slide">
@@ -23,6 +23,28 @@
         </li>
         {% endfor %}
       </ul>
+    </div>
+  </section>
+
+  <!-- Big photos -->
+  <section id="big" class="splide hidden-div">
+    <div class="photos">
+      <div class="close" onclick="document.getElementById('big').style.display = 'none';"><em class="icon-close"></em></div>
+      <div class="splide__track">
+        <ul class="splide__list">
+          {% for i in building.Photos | find('Image_type', 'eq', 'habitacion') %}
+          <li class="splide__slide">
+          <div class="bigdiv">
+            {% image
+              constants.SERVER + "/wopi/files/Marketing/Media_building/" + i.id +"/Image/contents?access_token=" + token,
+              L, building.Name, building.Name, building.Name + '-' + i.id | slugify, "bigimage",
+              [1600], ""
+            %}
+          </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </section>
 
