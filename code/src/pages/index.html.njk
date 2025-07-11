@@ -1,7 +1,7 @@
 ---
 name: index
 eleventyComputed:
-    title: "{{langs[L].pages[name][site].title}}"
+    title: "{{langs[L].pages[name][site].title|safe}}"
     alt:
       es: "{{root}}{{langs.es.folder}}/"
       en: "{{root}}{{langs.en.folder}}/"

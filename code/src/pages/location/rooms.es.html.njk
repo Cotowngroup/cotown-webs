@@ -2,7 +2,7 @@
 name: rooms
 eleventyComputed:
     L: "es"
-    title: "{{langs[L].pages[name][site].title}}"
+    title: "{{langs[L].pages[name][site].title|safe}}"
     city: "{{location | translate('Name', L)}}"
     alt:
       es: "{{langs.es.folder}}/{{langs.es.pages[name].url}}-{{location | translate('Name', 'es') | slugify}}.html"

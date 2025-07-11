@@ -2,7 +2,7 @@
 name: blog
 eleventyComputed:
     L: "es"
-    title: "{{langs[L].pages[name][site].title}}"
+    title: "{{langs[L].pages[name][site].title|safe}}"
     alt:
       es: "{{langs.es.folder}}/blog/{{posttag | translate('Name', 'es') | slugify}}.html"
       en: "{{langs.en.folder}}/blog/{{posttag | translate('Name', 'en') | slugify}}.html"

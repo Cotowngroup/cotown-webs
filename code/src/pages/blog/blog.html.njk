@@ -1,7 +1,7 @@
 ---
 name: blog
 eleventyComputed:
-    title: "{{langs[L].pages[name][site].title}}"
+    title: "{{langs[L].pages[name][site].title|safe}}"
     posttag:
       id: 0
     alt:
