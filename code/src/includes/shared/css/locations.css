@@ -339,7 +339,7 @@ padding-bottom: 0;
   .locations .container-main .all-locations .locations-container .text-container .head1.title-where {
     font-size: var(--resp-title);
     line-height: 1;
-    margin: 1em 0 0.5em 0;
+    margin: 0.5 0 0.5em 0;
   }
   .locations .container-main .all-locations .locations-container .locations-list .list-container .location .img-text {
     width: 60%!important;
@@ -497,7 +497,7 @@ padding-bottom: 0;
   } 
   .locations .container-main .all-locations .locations-container .locations-list .list-container .location .types .type-list a, .locations .container-main .all-locations.vanguard .locations-container .locations-list .list-container .location .types .type-list a  {    
     max-width: 110px;
-    max-height: 110px;
+    max-height: 125px;
     min-width: 96px;
     min-height: 96px;
   }

@@ -191,6 +191,11 @@
 }
 
 /* ---------- ROOMS ---------- \*/
+.flat.vanguard .head2 {
+	font-family: var(--title-font);
+	font-weight: var(--400);
+}
+
 .rooms .all-rooms {
   display: flex;
   flex-flow: column;
@@ -220,8 +225,8 @@
 .rooms .all-rooms .title .head2 {
   width: fit-content;
   position: relative;
-  left: 3%;
-  font-size: 64px;
+  left: -30px;
+  top: 20px;
 }
 .rooms .all-rooms .title.no-corner .head2 {
   position: static;
@@ -257,6 +262,11 @@
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+}
+.right-data .title-favorite h3 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.5;
 }
 .right-data .title-favorite h3.right-data .title-favorite h4 {
   font-weight: 700;
@@ -626,8 +636,7 @@ margin-bottom: 0.5em;
   .rooms .all-rooms .title .head2 {
     width: fit-content;
     position: relative;
-    font-size: 60px;
-    left: 3%;
+    left: 45px;
   }
   .rooms .all-rooms .title.no-corner .head2{
     margin-left: 0.2em;

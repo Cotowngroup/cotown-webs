@@ -11,8 +11,8 @@ body {
 .head4,
 .head5,
 .head6 {
-	margin-top: 0;
-	margin-bottom: 1rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
 	font-weight: 300;
 }
 .head1 {

@@ -3,7 +3,7 @@
   <!-- Photo carousel -->
   <section id="image-carousel" class="splide first-slider pure-u-1" aria-label="Beautiful Images">
     <div class="title-button" onclick="thumb('big', splidebig, splidefirst);">
-      <h1 class="head6" style="text-align:left;">{{ building | translate('Description', L) | safe }}</h1>
+      <h1 class="head6" style="text-align:left; padding: 0 10px;">{{ building | translate('Description', L) | safe }}</h1>
       <div class="head1">{{building.Name}}</div>
       {% if building.Tour %}
       <button class="btn-secondary" onclick="open_tour('{{building.Tour}}')">
