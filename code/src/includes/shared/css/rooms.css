@@ -658,10 +658,6 @@ margin-bottom: 0.5em;
 	justify-content: space-between;
 	align-items: flex-end;
 }
-.first .first-contain.cotown .first-slider .title-button.no-tour {
-	justify-content: space-between;
-	align-items: flex-end;
-}
 .first .first-contain.cotown .first-slider .title-button .head1 {
   font-size: var(--big-title);
   color: var(--black);
