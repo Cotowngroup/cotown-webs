@@ -696,9 +696,10 @@ margin-bottom: 0.5em;
 
 .first .first-contain.cotown .first-slider .title-button .sello-cotown {
 	position: relative;
-    height: 0;
-    width: 100%;
-	align-items: end;
+  height: 0;
+  width: 100%;
+  align-items: end;
+  top: 20px;
 }
 .first .first-contain.cotown .first-slider .title-button .sello-cotown img.img-sello {
     position: absolute;

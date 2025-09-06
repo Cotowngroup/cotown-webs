@@ -3,8 +3,9 @@
   <!-- Photo carousel -->
   <section id="image-carousel" class="splide first-slider pure-u-1" aria-label="Beautiful Images">
     <div class="title-button {% if building.Tour_private %} with-tour {% else %} no-tour {% endif %}"{% if not building.Tour_private %} onclick="thumb('big', splidebig, splidefirst);"{% endif %}>
-      <h1 class="head6" style="text-align:left; padding: 0 10px;">{{ building | translate('Description_private', L) | safe }}</h1>
+      <p class="head6" style="font-weight:400; text-align:left; padding: 0 10px;">{{ building | translate('Description_private', L) | safe }}</p>
       <div class="head1">{{building.Name}}</div>
+      <h1 class="head6" style="font-style: italic;text-align:left; padding: 0 10px;">{{ building | translate('Header_private', L) | safe }}</p>
       {% if site == 'vanguard' %}
       {% else %}
       <div class="sello-cotown pure-u-1">
