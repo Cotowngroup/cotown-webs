@@ -24,6 +24,18 @@ module.exports = async (config) => {
       Details_en
       Details_private
       Details_private_en
+      Title
+      Title_en
+      Title_private
+      Title_private_en
+      Meta_description
+      Meta_description_en
+      Meta_description_private
+      Meta_description_private_en
+      Header
+      Header_en
+      Header_private
+      Header_private_en
       Tour
       Tour_private
       Segment_id

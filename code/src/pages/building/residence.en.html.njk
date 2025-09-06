@@ -2,11 +2,11 @@
 name: residences
 eleventyComputed:
     L: "en"
-    title: "{{building.Name}}"
+    title: "{{building | translate('Title',L)}}"
+    description: "{{building | translate('Meta_description',L)}}"
     alt:
       es: "{{langs.es.folder}}/{{building.Name | slugify}}.html"
       en: "{{langs.en.folder}}/{{building.Name | slugify}}.html"
-    description: "{{langs[L].pages[name][site].title|safe}} | {{building | translate('Name',L) | slugify}}"
     permalink: "{{root}}{{langs[L].folder}}/{{building.Name | slugify}}.html"
 layout: shared/layouts/base.html
 pagination:
