@@ -2636,3 +2636,42 @@ ul.black-menu.cotown li .locations-container label.locations-label .loc a {
 }
 /* ------  FORM END -------------- */
 
+
+.sticker {
+  position: absolute;
+  z-index: 99999;
+  right: 0;
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.sticker-primary {
+  top: 0px;
+  background: var(--sticker-primary);
+  width: 33%;
+  max-width: 400px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.sticker-secondary {
+  top: 62px;
+  background: var(--sticker-secondary);
+  width: 18%;
+  max-width: 200px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.sticker .line1 {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.sticker .line2 {
+  font-weight: 400;
+  font-size: 0.7rem;
+  opacity: 0.9;
+}

@@ -1000,3 +1000,18 @@ main.flat.cotown .last .last-zone .last-content .left .text p {
 .bigimage {
 	height: auto !important;
 }
+
+.rooms .sticker-primary {
+  top: 0px;
+  right: -100px;
+}
+.rooms .sticker-secondary {
+  top: 62px;
+}
+
+.sticker-primary {
+  top: 40px;
+}
+.sticker-secondary {
+  top: 102px;
+}

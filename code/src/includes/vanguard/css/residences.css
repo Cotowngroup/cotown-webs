@@ -300,3 +300,11 @@ input[type="search"]::-webkit-search-results-decoration {
     font-size: 14px;
   }
 }
+
+
+.sticker-primary {
+  top: 40px;
+}
+.sticker-secondary {
+  top: 102px;
+}

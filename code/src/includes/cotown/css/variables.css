@@ -140,6 +140,9 @@
     /* POSICIONES EN LOCATIONS */
     --align-title: center;
 
+    --sticker-primary: #004c40;
+    --sticker-secondary: #b64f26;
+    
 }
 
 /* SVG Fill colours */

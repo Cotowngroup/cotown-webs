@@ -1854,3 +1854,10 @@ main .container-main .first-contain.home.cotown .text p {
         width: calc(100% - 32px);
     }
 }
+
+.sticker-primary {
+  top: 40px;
+}
+.sticker-secondary {
+  top: 102px;
+}

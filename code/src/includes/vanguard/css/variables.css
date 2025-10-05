@@ -10,6 +10,7 @@
     --big-subtitle: 36px;
     --subtitle: 28px;
     --icon-redes: 22px;
+
     --text-title: 20px;
     --tag-title: 18px;
     --mini-title: 16px;
@@ -138,6 +139,9 @@
 
     /* POSICIONES EN LOCATIONS */
     --align-title: flex-start;
+
+    --sticker-primary: #000000;
+    --sticker-secondary: #c14256;
 
 }
 

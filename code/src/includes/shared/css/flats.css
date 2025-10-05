@@ -1105,3 +1105,11 @@ main.flat.cotown .last .last-zone .last-content .left .head2 span {
 .bigimage {
 	height: auto !important;
 }
+
+
+.sticker-primary {
+  top: 40px;
+}
+.sticker-secondary {
+  top: 102px;
+}
