@@ -2639,7 +2639,7 @@ ul.black-menu.cotown li .locations-container label.locations-label .loc a {
 
 .sticker {
   position: absolute;
-  z-index: 99999;
+  z-index: 9999;
   right: 0;
   color: #fff;
   padding: 14px 20px;
@@ -2674,4 +2674,19 @@ ul.black-menu.cotown li .locations-container label.locations-label .loc a {
   font-weight: 400;
   font-size: 0.7rem;
   opacity: 0.9;
+}
+
+@media only screen and (max-width: 1023.99px) {
+  .sticker-primary {
+    width: 35%;
+  }
+  .sticker-secondary {
+    width: 30%;
+  }
+  .sticker .line1 {
+    font-size: 0.9rem;
+  }
+  .sticker .line2 {
+    font-size: 0.7rem;
+  }
 }

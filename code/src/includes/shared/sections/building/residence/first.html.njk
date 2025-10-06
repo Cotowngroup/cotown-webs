@@ -14,7 +14,7 @@
     </div>     
     <div class="splide__track" onclick="thumb('big', splidebig, splidefirst);">
       <ul class="splide__list">
-        {% for i in building.Photos | find('Image_type', 'eq', 'habitacion') %}
+      {% for i in building.Photos | find('Image_type', 'eq', 'habitacion') %}
         <li class="splide__slide">
           {% image
             constants.SERVER + "/wopi/files/Marketing/Media_building/" + i.id +"/Image/contents?access_token=" + token,
@@ -26,7 +26,7 @@
         {% set rent_pct = 0.0 %}
         {% set fee_pct= 0.0 %}
         {% for x in promos %}
-          {% if x.id == building.id and (not x.flat_type or x.flat_type | slice(0, 3) != 'APT') %}
+          {% if x.building == building.id and (not x.flat_type or x.flat_type | slice(0, 3) != 'APT') %}
             {% if x.Value_rent_pct | float < rent_pct  %}
               {% set rent_pct = x.Value_rent_pct | float %}
             {% endif %}
@@ -50,7 +50,7 @@
         </div>
         {% endif %}
 
-        {% endfor %}
+      {% endfor %}
       </ul>
     </div>
   </section>

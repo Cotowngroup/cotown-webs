@@ -789,6 +789,9 @@ section.necesities.cotown .contain .title .head2 {
         box-shadow: 0px 20px 30px rgba(22, 22, 22, 0.06);
         padding: 0 0 1em;
     }
+    .pisos.mobile .piso-contain .piso-main {
+        position: relative;
+    }
     .pisos.mobile .piso-contain .piso-main .img img {
         object-fit: cover;
         object-position: center center;

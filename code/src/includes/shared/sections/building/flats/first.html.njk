@@ -25,7 +25,7 @@
     </div>
     <div class="splide__track" onclick="thumb('big', splidebig, splidefirst);">
       <ul class="splide__list">
-        {% for i in building.Photos | find('Image_type', 'eq', 'piso') %}
+      {% for i in building.Photos | find('Image_type', 'eq', 'piso') %}
         <li class="splide__slide">
           {% image
             constants.SERVER + "/wopi/files/Marketing/Media_building/" + i.id +"/Image/contents?access_token=" + token,
@@ -47,14 +47,12 @@
             {% endif %}
           {% endif %}
         {% endfor %}
-
         {% if rent_pct < 0 %}
         <div class="sticker sticker-primary">
           <span class="line1">{% literal texts, 'promo-upto', L %} {{rent_pct|round(1)}}% {% literal texts, 'promo-discount', L %}</span>
           <span class="line2">{% literal texts, 'promo-rent', L %}</span>
         </div>
         {% endif %}
-
         {% if fee_pct < 0 %}
         <div class="sticker sticker-secondary">
           <span class="line1">{% literal texts, 'promo-upto', L %} {{fee_pct|round(1)}}% {% literal texts, 'promo-discount', L %}</span>
@@ -62,7 +60,7 @@
         </div>
         {% endif %}
 
-        {% endfor %}
+      {% endfor %}
       </ul>
     </div>
   </section>

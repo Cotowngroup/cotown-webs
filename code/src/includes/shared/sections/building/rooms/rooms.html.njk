@@ -11,7 +11,7 @@
   {% set rent_pct = 0.0 %}
   {% set fee_pct = 0.0 %}
   {% for x in promos %}
-    {% if x.id == building.id and (not x.flat_type or x.flat_type | slice(0, 3) != 'APT') and (not x.place_type or x.place_type | slice(0, 1) != p.Code[0]) %}
+    {% if x.building == building.id and (not x.flat_type or x.flat_type | slice(0, 3) != 'APT') and (not x.place_type or x.place_type | slice(0, 1) != p.Code[0]) %}
       {% if x.Value_rent_pct | float < rent_pct  %}
         {% set rent_pct = x.Value_rent_pct | float %}
       {% endif %}
@@ -20,14 +20,12 @@
       {% endif %}
     {% endif %}
   {% endfor %}
-
   {% if rent_pct < 0 %}
   <div class="sticker sticker-primary">
     <span class="line1">{% literal texts, 'promo-upto', L %} {{rent_pct|round(1)}}% {% literal texts, 'promo-discount', L %}</span>
     <span class="line2">{% literal texts, 'promo-rent', L %}</span>
   </div>
   {% endif %}
-
   {% if fee_pct < 0 %}
   <div class="sticker sticker-secondary">
     <span class="line1">{% literal texts, 'promo-upto', L %} {{fee_pct|round(1)}}% {% literal texts, 'promo-discount', L %}</span>
