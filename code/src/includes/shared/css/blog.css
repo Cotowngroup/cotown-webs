@@ -1078,7 +1078,7 @@ main.post-page.vanguard .container-main .post-content .text .text-content ol li 
 		font-size: var(--resp-text-title);
 	}
 	main.post-page.cotown .container-main .post-content .first-contain .title-big .bigh .head1 {
-		font-size: var(--resp-big-subtitle);
+		font-size: var(--resp-subtitle); 
 		margin-bottom: 0;
 	}
 	main.post-page.cotown .container-main .post-content .first-contain .title-big .title p.subtitle {

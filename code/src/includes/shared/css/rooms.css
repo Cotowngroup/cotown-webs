@@ -74,7 +74,7 @@
 .first .first-contain .after-slide.bottom {
   align-items: start;
   padding: 1em 0;
-  background-color: var(--grey-background);
+  background-color: var(--white-background);
 	min-height: 70px;
 }
 .first .first-contain .text-first {
