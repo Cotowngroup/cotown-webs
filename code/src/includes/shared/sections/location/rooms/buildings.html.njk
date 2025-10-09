@@ -148,23 +148,25 @@
                     {% set minI = 99999 %}
                     {% set minD = 99999 %}
                     {% set minF = 99999 %}
+                    {% set disI = 99999 %}
+                    {% set disD = 99999 %}
+                    {% set disF = 99999 %}
                     {% for r in rooms | find('id', 'eq', b.id) %}
                     {% for p in r.Place_types %}
                     {% for f in p.Flat_types %}
-                      {% if p.Code[0] == 'I' and minI > f.Rent_long %}
-                        {% set minI = f.Rent_long %}
-                      {% endif %}
-                      {% if p.Code[0] == 'D' and minD > f.Rent_long %}
-                        {% set minD = f.Rent_long %}
-                      {% endif %}
+                      {% if f.Rent_pct %}{% set disc = f.Rent_long * f.Rent_pct %}{% else %}{% set disc = 99999 %}{% endif %}
+                      {% if p.Code[0] == 'I' and minI > f.Rent_long %}{% set minI = f.Rent_long %}{% endif %}
+                      {% if p.Code[0] == 'I' and disI > disc %}{% set disI = disc %}{% endif %}
+                      {% if p.Code[0] == 'D' and minD > f.Rent_long %}{% set minD = f.Rent_long %}{% endif %}
+                      {% if p.Code[0] == 'D' and disD > disc %}{% set disD = disc %}{% endif %}
                     {% endfor %}
                     {% endfor %}
                     {% endfor %}
                     {% for r in flats | find('id', 'eq', b.id) %}
                     {% for f in r.Flat_subtypes %}
-                      {% if minF > f.Rent_long %}
-                        {% set minF = f.Rent_long %}
-                      {% endif %}
+                      {% if f.Rent_pct %}{% set disc = f.Rent_long * f.Rent_pct %}{% else %}{% set disc = 99999 %}{% endif %}
+                      {% if disF > disc %}{% set disF = disc %}{% endif %}
+                      {% if minF > f.Rent_long %}{% set minF = f.Rent_long %}{% endif %}
                     {% endfor %}
                     {% endfor %}
 
@@ -178,7 +180,13 @@
                       <button class="btn-secondary green-button">{% literal texts, 'price-mas', L %}</button>                     
                       {% else %}
                       {% endif %}                     
-                      <h4>{% literal texts, 'price-desde', L %} {{minI|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                      {% if minI <= disI %}
+                      <h4>{% literal texts, 'price-desde', L %} {{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                      <h4>&nbsp;</h4>
+                      {% else %}
+                      <h4 style="text-decoration:line-through;color:black;">{% literal texts, 'price-desde', L %} {{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                      <h4 style="color:red;">{% literal texts, 'price-desde', L %} {{disI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                      {% endif %}
                       {% if site == 'vanguard' %}
                       {% else %}
                       <button class="btn-secondary green-button">{% literal texts, 'price-mas', L %}</button> 
@@ -198,7 +206,13 @@
                         <button class="btn-secondary green-button">{% literal texts, 'price-mas', L %}</button>                 
                         {% else %}
                         {% endif %}                     
-                        <h4>{% literal texts, 'price-desde', L %} {{minD|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        {% if minD <= disD %}
+                        <h4>{% literal texts, 'price-desde', L %} {{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        <h4>&nbsp;</h4>
+                        {% else %}
+                        <h4 style="text-decoration:line-through;color:black;">{% literal texts, 'price-desde', L %} {{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        <h4 style="color:red;">{% literal texts, 'price-desde', L %} {{disD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        {% endif %}
                         {% if site == 'vanguard' %}
                         {% else %}
                         <button class="btn-secondary green-button">{% literal texts, 'price-mas', L %}</button>
@@ -217,7 +231,13 @@
                         {% if site == 'vanguard' %}
                         <button class="btn-secondary green-button">{% literal texts, 'price-mas', L %}</button>
                         {% endif %}
-                        <h4>{% literal texts, 'price-desde', L %} {{minF|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        {% if minF <= disF %}
+                        <h4>{% literal texts, 'price-desde', L %} {{minF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        <h4>&nbsp;</h4>
+                        {% else %}
+                        <h4 style="text-decoration:line-through;color:black;">{% literal texts, 'price-desde', L %} {{minF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        <h4 style="color:red;">{% literal texts, 'price-desde', L %} {{disF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        {% endif %}
                         {% if site == 'cotown' %}
                         <button class="btn-secondary green-button">{% literal texts, 'price-mas', L %}</button>
                         {% endif %}  
@@ -385,7 +405,7 @@
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
                 <span>{% literal texts, 'price-desde', L %}<span>
-                <h4>{{minI|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                <h4>{{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 <button 
                   class="btn-secondary green-button" 
                   onclick="location.href='{{root}}{{langs[L].folder}}/{{langs[L].pages[name].url}}-{{b.Name | slugify}}.html#I'">
@@ -407,7 +427,7 @@
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
                 <span>{% literal texts, 'price-desde', L %}<span>
-                <h4>{{minD|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                <h4>{{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 <button 
                   class="btn-secondary green-button" 
                   onclick="location.href='{{root}}{{langs[L].folder}}/{{langs[L].pages[name].url}}-{{b.Name | slugify}}.html#D'">
@@ -429,7 +449,7 @@
               </div>              
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
                 <span>{% literal texts, 'price-desde', L %}<span>
-                <h4>{{minF|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                <h4>{{minF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 <button 
                   class="btn-secondary green-button" 
                   onclick="location.href='{{root}}{{langs[L].folder}}/{{langs[L].pages['flats'].url}}-{{b.Name | slugify}}.html'">

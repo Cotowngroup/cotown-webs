@@ -181,19 +181,26 @@
                     </div>
                   </div>
 
-                  <!-- DESDE -->
                   {% set min = 99999 %}
+                  {% set dis = 99999 %}
                   {% for r in flats | find('id', 'eq', b.id) %}
+                  {{r|dump}}
                   {% for f in r.Flat_subtypes %}
-                    {% if min > f.Rent_long %}
-                      {% set min = f.Rent_long %}
-                    {% endif %}
+                    {% if f.Rent_pct %}{% set disc = f.Rent_long * f.Rent_pct %}{% else %}{% set disc = 99999 %}{% endif %}
+                    {% if min > f.Rent_long %}{% set min = f.Rent_long %}{% endif %}
+                    {% if dis > disc %}{% set dis = disc %}{% endif %}
                   {% endfor %}
                   {% endfor %}
                   {% if min < 99999 %}
                   <div class="price">
                     <p>{% literal texts, 'price-desde', L %}</p>
-                    <h4 class="head5">{{min|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                    {% if dis <= min %}
+                    <h4 class="head5">
+                    <span style="text-decoration:line-through;" class="head5">{{min|round|number(L)}} €</span>
+                    {{dis|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                    {% else %}
+                    <h4 class="head5">{{min|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                    {% endif %}
                   </div>
                   {% endif %}
 
@@ -295,7 +302,7 @@
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
                 <span>{% literal texts, 'price-desde', L %}<span>
-                <h4>{{minI|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                <h4>{{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
               </div>
             </div>
             </a>
@@ -312,7 +319,7 @@
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
                 <span>{% literal texts, 'price-desde', L %}<span>
-                <h4>{{minD|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                <h4>{{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
               </div>
             </div>
             {% endif %}
@@ -338,7 +345,7 @@
                 {% endfor %}
                 {% if min < 99999 %}
                 <span>{% literal texts, 'price-desde', L %}<span>
-                <h4>{{min|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                <h4>{{min|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 {% endif %}
 
               </div>
