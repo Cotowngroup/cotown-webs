@@ -1859,5 +1859,13 @@ main .container-main .first-contain.home.cotown .text p {
   top: 40px;
 }
 .sticker-secondary {
-  top: 102px;
+  top: 114px;
+}
+@media only screen and (max-width: 1023.99px) {
+  .sticker-primary {
+    top: 120px;
+  }
+  .sticker-secondary {
+    top: 180px;
+  }
 }

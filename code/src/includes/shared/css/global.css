@@ -2642,7 +2642,7 @@ ul.black-menu.cotown li .locations-container label.locations-label .loc a {
   z-index: 999;
   right: 0;
   color: #fff;
-  padding: 14px 20px;
+  padding: 16px 24px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -2659,23 +2659,30 @@ ul.black-menu.cotown li .locations-container label.locations-label .loc a {
   border-bottom-left-radius: 12px;
 }
 .sticker-secondary {
-  top: 62px;
+  top: 74px;
   background: var(--sticker-secondary);
   width: 18%;
-  max-width: 200px;
+  max-width: 240px;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 }
 .sticker .line1 {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 .sticker .line2 {
   font-weight: 400;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   opacity: 0.9;
 }
-
+.sticker-primary.stick {
+  position: fixed;
+  top: 140px;
+}
+.sticker-secondary.stick {
+  position: fixed;
+  top: 214px;
+}
 .sticker.animated {
 	transform: translateX(100%);
     animation: slide-in 0.8s ease-out forwards;
@@ -2691,15 +2698,22 @@ ul.black-menu.cotown li .locations-container label.locations-label .loc a {
 
 @media only screen and (max-width: 1023.99px) {
   .sticker-primary {
-    width: 35%;
+    width: 45%;
   }
   .sticker-secondary {
-    width: 30%;
+  	top: 60px;
+    width: 35%;
   }
-  .sticker .line1 {
-    font-size: 0.9rem;
+ .sticker-primary.stick {
+    top: 100px;
+  }
+ .sticker-secondary.stick {
+    top: 160px;
+  }
+ .sticker .line1 {
+    font-size: 0.8rem;
   }
   .sticker .line2 {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
 }
