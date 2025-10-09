@@ -113,13 +113,13 @@
           {% endif %}
         {% endfor %}
         {% if rent_pct < 0  %}
-        <div class="sticker sticker-primary">
+        <div class="sticker sticker-primary animated">
           <span class="line1">{% literal texts, 'promo-upto', L %} {{rent_pct|round(1)}}% {% literal texts, 'promo-discount', L %}</span>
           <span class="line2">{% literal texts, 'promo-rent', L %}</span>
         </div>
         {% endif %}
         {% if fee_pct < 0 %}
-        <div class="sticker sticker-secondary">
+        <div class="sticker sticker-secondary animated">
           <span class="line1">{% literal texts, 'promo-upto', L %} {{fee_pct|round(1)}}% {% literal texts, 'promo-discount', L %}</span>
           <span class="line2">{% literal texts, 'promo-fee', L %}</span>
         </div>
@@ -155,13 +155,13 @@
         {{ rent_pct }}
         {{ rent_pct }}
         {% if rent_pct < 0  %}
-        <div class="sticker sticker-primary">
+        <div class="sticker sticker-primary animated">
           <span class="line1">{% literal texts, 'promo-upto', L %} {{rent_pct|round(1)}}% {% literal texts, 'promo-discount', L %}</span>
           <span class="line2">{% literal texts, 'promo-rent', L %}</span>
         </div>
         {% endif %}
         {% if fee_pct < 0 %}
-        <div class="sticker sticker-secondary">
+        <div class="sticker sticker-secondary animated">
           <span class="line1">{% literal texts, 'promo-upto', L %} {{fee_pct|round(1)}}% {% literal texts, 'promo-discount', L %}</span>
           <span class="line2">{% literal texts, 'promo-fee', L %}</span>
         </div>

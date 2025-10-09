@@ -2676,6 +2676,19 @@ ul.black-menu.cotown li .locations-container label.locations-label .loc a {
   opacity: 0.9;
 }
 
+.sticker.animated {
+	transform: translateX(100%);
+    animation: slide-in 0.8s ease-out forwards;
+}
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @media only screen and (max-width: 1023.99px) {
   .sticker-primary {
     width: 35%;
