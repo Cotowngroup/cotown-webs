@@ -50,6 +50,15 @@ select option:disabled {
 .hidden {
 	display: none !important;
 }
+.red {
+	color:red;
+}
+.right {
+	text-align: right;
+}
+.linethru {
+	text-decoration: line-through;
+}
 .invisible {
 	visibility: hidden !important;
 	pointer-events: none;
