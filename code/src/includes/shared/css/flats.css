@@ -1017,6 +1017,17 @@ main.flat.cotown .apartments .all-rooms .card-room .right-data .align-end {
     align-items: flex-end;
 }
 
+main.flat.cotown .apartments .all-rooms .card-room .right-data .align-end p {
+	margin: 0px 0px 10px;
+    font-size: 18px;
+}
+main.flat.cotown .apartments .all-rooms .card-room .right-data .align-end .bold {
+	font-weight: 700;
+}
+main.flat.cotown .apartments .all-rooms .card-room .right-data .align-end .light {
+	font-weight: 300;
+}
+
 /* COTOWN RESPONSIVE \*/
 @media only screen and (max-width: 1023.9px) {
 .first .first-contain.cotown .first-slider .title-button {    
