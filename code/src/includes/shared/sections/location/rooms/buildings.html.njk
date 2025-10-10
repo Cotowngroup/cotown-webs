@@ -410,7 +410,6 @@
                 <span>{% literal texts, 'price-desde', L %}<span>
                 {% if minI <= disI %}
                 <h4>{{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
-                <h4>&nbsp;</h4>
                 {% else %}
                 <h4 class="linethru">{{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 <h4 class="red">{{disI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
@@ -440,7 +439,6 @@
                 <span>{% literal texts, 'price-desde', L %}<span>
                 {% if minD <= disD %}
                 <h4>{{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
-                <h4>&nbsp;</h4>
                 {% else %}
                 <h4 class="linethru">{{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 <h4 class="red">{{disD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
@@ -469,7 +467,6 @@
 
                 {% if minF <= disF %}
                 <h4>{{minF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
-                <h4>&nbsp;</h4>
                 {% else %}
                 <h4 class="linethru">{{minF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 <h4 class="red">{{disF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>

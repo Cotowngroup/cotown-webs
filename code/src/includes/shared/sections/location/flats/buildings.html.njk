@@ -296,11 +296,10 @@
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
 
-                <p>{% literal texts, 'price-desde', L %}</p>
+                <span>{% literal texts, 'price-desde', L %}</span>
                 {% if min < 99999 %}
                 {% if min <= dis %}
                 <h4>{{min|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
-                <h4>&nbsp;</h4>
                 {% else %}
                 <h4 class="linethru">{{min|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 <h4>{{dis|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>

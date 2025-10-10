@@ -1416,7 +1416,7 @@ main .container-main .first-contain.home.cotown .text p {
 
     .main-header .video.vanguard .text-container.mobile {
         position: absolute;
-        top: 1em;
+        top: 0.5em;
         left: 1em;
     }    
 
@@ -1862,10 +1862,10 @@ main .container-main .first-contain.home.cotown .text p {
   top: 114px;
 }
 @media only screen and (max-width: 1023.99px) {
- .sticker-primary.stick {
+ .sticker-primary {
     top: var(--sticker-primary-top);
   }
- .sticker-secondary.stick {
+ .sticker-secondary {
     top: var(--sticker-secondary-top);
   }
 }
