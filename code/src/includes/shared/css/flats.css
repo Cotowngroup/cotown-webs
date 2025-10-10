@@ -818,6 +818,10 @@ font-size: var(--text);
 .first .first-contain.cotown .after-slide .text-first p {
 font-size: var(--text);
 }
+.first .first-contain.cotown .after-slide .text-first ul {
+line-height: 1.5em;
+}
+
 .first .first-contain.cotown .after-slide.bottom {
 background-color: var(--white);  
 }

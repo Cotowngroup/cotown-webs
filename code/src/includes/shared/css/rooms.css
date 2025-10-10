@@ -727,6 +727,9 @@ margin-bottom: 0.5em;
 .first .first-contain.cotown .after-slide .text-first p {
   font-size: var(--text);
 }
+.first .first-contain.cotown .after-slide .text-first ul {
+line-height: 1.5em;
+}
 .first .first-contain.cotown .after-slide.bottom {
   background-color: var(--white);  
 }
@@ -806,7 +809,7 @@ main.flat.cotown .rooms .all-rooms .card-room .right-data .share .sharing .right
   font-weight: var(--regular);
   line-height: 1;
   margin: 0;
-  padding: 0;
+  padding: 0 0 10px;
 }
 main.flat.cotown .rooms .all-rooms .card-room .right-data .extra {
   border-bottom: 1px solid var(--primary);
