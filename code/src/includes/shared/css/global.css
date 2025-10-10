@@ -58,6 +58,7 @@ select option:disabled {
 }
 .linethru {
 	text-decoration: line-through;
+	font-weight: 400 !important;
 }
 .invisible {
 	visibility: hidden !important;

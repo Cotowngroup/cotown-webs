@@ -190,9 +190,10 @@
                     {% if dis > disc %}{% set dis = disc %}{% endif %}
                   {% endfor %}
                   {% endfor %}
+
                   {% if min < 99999 %}
                   <div class="price">
-                    <p>{% literal texts, 'price-desde', L %}</p>
+                    <span>{% literal texts, 'price-desde', L %}</span>
                     {% if dis <= min %}
                     <h4 class="head5">
                     <span style="font-weight: 200;" class="linethru head5">{{min|round|number(L)}} €</span>
@@ -272,56 +273,18 @@
             <h2 class="head3">{{b.Name}}</h2>
           </a>
 
-          {% set minI = 99999 %}
-          {% set minD = 99999 %}
-          {% for r in rooms | find('id', 'eq', b.id) %}
-          {% for p in r.Place_types %}
-          {% for f in p.Flat_subtypes %}
-            {% if p.Code[0] == 'I' and minI > f.Rent_long %}
-              {% set minI = f.Rent_long %}
-            {% endif %}
-            {% if p.Code[0] == 'D' and minD > f.Rent_long %}
-              {% set minD = f.Rent_long %}
-            {% endif %}
-          {% endfor %}
+          {% set min = 99999 %}
+          {% set dis = 99999 %}
+          {% for r in flats | find('id', 'eq', b.id) %}
+          {% for f in r.Flat_subtypes %}
+            {% if f.Rent_pct %}{% set disc = f.Rent_long * f.Rent_pct %}{% else %}{% set disc = 99999 %}{% endif %}
+            {% if min > f.Rent_long %}{% set min = f.Rent_long %}{% endif %}
+            {% if dis > disc %}{% set dis = disc %}{% endif %}
           {% endfor %}
           {% endfor %}
 
           <!-- Place types -->
           <div class="options pure-u-1">
-
-            <!-- Habitacion individual -->
-            {% if minI < 99999 %}
-            <div class="type pure-u-22-24" onclick="location.href='{{root}}{{langs[L].folder}}/{{langs[L].pages[name].url}}-{{b.Name | slugify}}.html#I'">
-              <div class="img-container pure-u-3-24">
-                <img src="{{root}}/assets/img/icono__hab_habitacion_individual.svg">
-              </div>
-              <div class="container-4 pure-u-10-24 pure-u-lg-1-2">
-                <h3 class="head4">{% literal texts, 'type-habitacion-individual', L %}</h3>
-              </div>
-              <div class="p-container pure-u-9-24 pure-u-lg-7-24">
-                <span>{% literal texts, 'price-desde', L %}<span>
-                <h4>{{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
-              </div>
-            </div>
-            </a>
-            {% endif %}
-
-            <!-- Habitacion compartida -->
-            {% if minI < 99999 %}
-            <div class="type pure-u-22-24" onclick="location.href='{{root}}{{langs[L].folder}}/{{langs[L].pages[name].url}}-{{b.Name | slugify}}.html#D'">
-              <div class="img-container pure-u-3-24">
-                <img src="{{root}}/assets/img/icono__hab_habitacion_compartida.svg">
-              </div>
-              <div class="container-4 pure-u-10-24 pure-u-lg-1-2">
-                <h3 class="head4">{% literal texts, 'type-habitacion-compartida', L %}</h3>
-              </div>
-              <div class="p-container pure-u-9-24 pure-u-lg-7-24">
-                <span>{% literal texts, 'price-desde', L %}<span>
-                <h4>{{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
-              </div>
-            </div>
-            {% endif %}
 
             <!-- Apartamento privado -->
             <div class="type pure-u-22-24">
@@ -333,18 +296,15 @@
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
 
-                <!-- DESDE -->
-                {% set min = 99999 %}
-                {% for r in flats | find('id', 'eq', b.id) %}
-                {% for f in r.Flat_subtypes %}
-                  {% if min > f.Rent_long %}
-                    {% set min = f.Rent_long %}
-                  {% endif %}
-                {% endfor %}
-                {% endfor %}
+                <p>{% literal texts, 'price-desde', L %}</p>
                 {% if min < 99999 %}
-                <span>{% literal texts, 'price-desde', L %}<span>
+                {% if min <= dis %}
                 <h4>{{min|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                <h4>&nbsp;</h4>
+                {% else %}
+                <h4 class="linethru">{{min|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                <h4>{{dis|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                {% endif %}
                 {% endif %}
 
               </div>
