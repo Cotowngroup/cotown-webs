@@ -1862,10 +1862,10 @@ main .container-main .first-contain.home.cotown .text p {
   top: 114px;
 }
 @media only screen and (max-width: 1023.99px) {
-  .sticker-primary {
-    top: 120px;
+ .sticker-primary.stick {
+    top: var(--sticker-primary-top);
   }
-  .sticker-secondary {
-    top: 180px;
+ .sticker-secondary.stick {
+    top: var(--sticker-secondary-top);
   }
 }

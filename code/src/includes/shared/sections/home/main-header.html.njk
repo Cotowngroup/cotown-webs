@@ -152,8 +152,6 @@
             {% set fee_pct = x.Value_fee_pct | float %}
           {% endif %}
         {% endfor %}
-        {{ rent_pct }}
-        {{ rent_pct }}
         {% if rent_pct < 0  %}
         <div class="sticker sticker-primary animated">
           <span class="line1">{% literal texts, 'promo-upto', L %} {{rent_pct|round(1)}}% {% literal texts, 'promo-discount', L %}</span>
