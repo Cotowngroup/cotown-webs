@@ -1,6 +1,7 @@
 {% set show = true %}
 {% for r in flats | find('id', 'eq', building.id) %}
 {% for p in r.Flat_subtypes %}
+{% if f.Rent_pct %}{% set pct = f.Rent_pct %}{% else %}{% set pct = 1.0 %}{% endif %}
 
 <!-- Big photos -->
 <section id="big-{{p.Code}}" class="splide hidden-div">
@@ -94,13 +95,31 @@
       {% for t in f.Flat_subtypes | find('Code', 'eq', p.Code) %}
       {% if loop.index == 1 %}      
       {% if site == 'vanguard' %}
-      <p data-price="f" class="bold">{% literal texts, 'price-desde', L %} {{t.Rent_long|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="l" class="hidden bold">{{t.Rent_long|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="m" class="hidden bold">{{t.Rent_medium|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="s" class="hidden bold">{{t.Rent_short|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="ln" class="hidden bold">{{t.Rent_long_next|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="mn" class="hidden bold">{{t.Rent_medium_next|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="sn" class="hidden bold">{{t.Rent_short_next|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        {% if t.Rent_pct %}{% set pct = t.Rent_pct %}{% else %}{% set pct = 1.0 %}{% endif %}
+        {% if pct != 1 %}
+        <p data-price="f"  class="right light linethru">{% literal texts, 'price-desde', L %} {{t.Rent_long|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="l"  class="right light linethru hidden">{{t.Rent_long       |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="m"  class="right light linethru hidden">{{t.Rent_medium     |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="s"  class="right light linethru hidden">{{t.Rent_short      |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="ln" class="right light linethru hidden">{{t.Rent_long_next  |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="mn" class="right light linethru hidden">{{t.Rent_medium_next|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="sn" class="right light linethru hidden">{{t.Rent_short_next |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="f"  class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_long       *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="l"  class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_long       *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="m"  class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_medium     *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="s"  class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_short      *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="ln" class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_long_next  *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="mn" class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_medium_next*pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="sn" class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_short_next *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        {% else %}
+        <p data-price="f"  class="bold">{% literal texts, 'price-desde', L %} {{t.Rent_long|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="l"  class="right bold hidden">{{t.Rent_long       |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="m"  class="right bold hidden">{{t.Rent_medium     |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="s"  class="right bold hidden">{{t.Rent_short      |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="ln" class="right bold hidden">{{t.Rent_long_next  |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="mn" class="right bold hidden">{{t.Rent_medium_next|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="sn" class="right bold hidden">{{t.Rent_short_next |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        {% endif %}
       {% else %}
       {% endif %}     
       {% endif %}
@@ -135,15 +154,33 @@
     <div class="align-end pure-u-1">
       {% for f in flats | find('id', 'eq', building.id) %}
       {% for t in f.Flat_subtypes | find('Code', 'eq', p.Code) %}
-      {% if loop.index == 1 %}      
+      {% if loop.index == 1 %}
       {% if site != 'vanguard' %}
-      <p data-price="f" class="bold">{% literal texts, 'price-desde', L %} {{t.Rent_long|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="l" class="hidden bold">{{t.Rent_long|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="m" class="hidden bold">{{t.Rent_medium|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="s" class="hidden bold">{{t.Rent_short|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="ln" class="hidden bold">{{t.Rent_long_next|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="mn" class="hidden bold">{{t.Rent_medium_next|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
-      <p data-price="sn" class="hidden bold">{{t.Rent_short_next|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        {% if t.Rent_pct %}{% set pct = t.Rent_pct %}{% else %}{% set pct = 1.0 %}{% endif %}
+        {% if pct != 1 %}
+        <p data-price="f"  class="right light linethru">{% literal texts, 'price-desde', L %} {{t.Rent_long|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="l"  class="right light linethru hidden">{{t.Rent_long       |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="m"  class="right light linethru hidden">{{t.Rent_medium     |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="s"  class="right light linethru hidden">{{t.Rent_short      |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="ln" class="right light linethru hidden">{{t.Rent_long_next  |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="mn" class="right light linethru hidden">{{t.Rent_medium_next|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="sn" class="right light linethru hidden">{{t.Rent_short_next |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="f"  class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_long       *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="l"  class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_long       *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="m"  class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_medium     *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="s"  class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_short      *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="ln" class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_long_next  *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="mn" class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_medium_next*pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="sn" class="right bold hidden">{% literal texts, 'price-desde', L %} {{(t.Rent_short_next *pct)|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        {% else %}
+        <p data-price="f"  class="bold">{% literal texts, 'price-desde', L %} {{t.Rent_long|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="l"  class="right bold hidden">{{t.Rent_long       |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="m"  class="right bold hidden">{{t.Rent_medium     |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="s"  class="right bold hidden">{{t.Rent_short      |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="ln" class="right bold hidden">{{t.Rent_long_next  |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="mn" class="right bold hidden">{{t.Rent_medium_next|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        <p data-price="sn" class="right bold hidden">{{t.Rent_short_next |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
+        {% endif %}
       {% else %}
       {% endif %}     
       {% endif %}

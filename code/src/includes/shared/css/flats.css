@@ -292,19 +292,22 @@
 
 .right-data .option {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column;
 	justify-content: space-between;
-	align-items: center;
+	align-items: end;
 }
 
 .right-data .option p {
 	margin: 0;
-	padding: 1em 0;
 	color: var(--white);
 }
 
 .right-data .option .bold {
 	font-weight: 700;
+	font-size: 18px;
+}
+.right-data .option .light {
+	font-weight: 400;
 	font-size: 18px;
 }
 

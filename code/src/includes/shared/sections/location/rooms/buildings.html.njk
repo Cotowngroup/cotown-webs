@@ -184,8 +184,8 @@
                       <h4>{% literal texts, 'price-desde', L %} {{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                       <h4>&nbsp;</h4>
                       {% else %}
-                      <h4 style="text-decoration:line-through;color:black;">{% literal texts, 'price-desde', L %} {{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
-                      <h4 style="color:red;">{% literal texts, 'price-desde', L %} {{disI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                      <h4 class="linethru">{% literal texts, 'price-desde', L %} {{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                      <h4 class="red">{% literal texts, 'price-desde', L %} {{disI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                       {% endif %}
                       {% if site == 'vanguard' %}
                       {% else %}
@@ -210,8 +210,8 @@
                         <h4>{% literal texts, 'price-desde', L %} {{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                         <h4>&nbsp;</h4>
                         {% else %}
-                        <h4 style="text-decoration:line-through;color:black;">{% literal texts, 'price-desde', L %} {{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
-                        <h4 style="color:red;">{% literal texts, 'price-desde', L %} {{disD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        <h4 class="linethru">{% literal texts, 'price-desde', L %} {{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        <h4 class="red">{% literal texts, 'price-desde', L %} {{disD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                         {% endif %}
                         {% if site == 'vanguard' %}
                         {% else %}
@@ -235,8 +235,8 @@
                         <h4>{% literal texts, 'price-desde', L %} {{minF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                         <h4>&nbsp;</h4>
                         {% else %}
-                        <h4 style="text-decoration:line-through;color:black;">{% literal texts, 'price-desde', L %} {{minF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
-                        <h4 style="color:red;">{% literal texts, 'price-desde', L %} {{disF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        <h4 class="linethru">{% literal texts, 'price-desde', L %} {{minF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
+                        <h4 class="red">{% literal texts, 'price-desde', L %} {{disF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                         {% endif %}
                         {% if site == 'cotown' %}
                         <button class="btn-secondary green-button">{% literal texts, 'price-mas', L %}</button>

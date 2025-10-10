@@ -184,7 +184,6 @@
                   {% set min = 99999 %}
                   {% set dis = 99999 %}
                   {% for r in flats | find('id', 'eq', b.id) %}
-                  {{r|dump}}
                   {% for f in r.Flat_subtypes %}
                     {% if f.Rent_pct %}{% set disc = f.Rent_long * f.Rent_pct %}{% else %}{% set disc = 99999 %}{% endif %}
                     {% if min > f.Rent_long %}{% set min = f.Rent_long %}{% endif %}
@@ -196,7 +195,7 @@
                     <p>{% literal texts, 'price-desde', L %}</p>
                     {% if dis <= min %}
                     <h4 class="head5">
-                    <span style="text-decoration:line-through;" class="head5">{{min|round|number(L)}} €</span>
+                    <span style="font-weight: 200;" class="linethru head5">{{min|round|number(L)}} €</span>
                     {{dis|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                     {% else %}
                     <h4 class="head5">{{min|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
