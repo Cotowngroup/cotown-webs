@@ -5,7 +5,7 @@
     <div class="title-button {% if building.Tour %} with-tour {% else %} no-tour {% endif %}"{% if not building.Tour %} onclick="thumb('big', splidebig, splidefirst);"{% endif %}>
       <p class="head6" style="font-weight:600; text-align:left; padding: 0 10px;">{{ building | translate('Description', L) | safe }}</p>
       <div class="head1">{{building.Name}}</div>
-      <h1 class="head6" style="font-style: italic;text-align:left; padding: 0 10px;">{{ building | translate('Header', L) | safe }}</h1>
+      <h1 class="head6" style="font-style: italic;padding: 0 10px;">{{ building | translate('Header', L) | safe }}</h1>
       {% if site == 'vanguard' %}
       {% else %}
       <div class="sello-cotown pure-u-1">
