@@ -36,9 +36,9 @@ tags: page
 <main class="contact {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
   <div class="container-main">
 
-    <section class="first-contact">    
+    <section class="first-contact">
       {% if site == 'vanguard' %}
-        <div class="title-big">       
+        <div class="title-big">
           <div class="bigh">
             <div class="head1">{% literal texts, 'contact-titulo', L %}</div>
           </div>
@@ -51,78 +51,34 @@ tags: page
               [auto], ""
           %}
         </div>
-        <div class="title-big desktop pure-u-9-24 pure-u-lg-1-6">       
+        <div class="title-big desktop pure-u-9-24 pure-u-lg-1-6">
           <div class="feeling cotown">
             <div class="head2 title-feel">{% literal texts, 'home-cotownity-hashtag', L %}</div>
-          </div>          
+          </div>
           <div class="bigh">
             <h1 class="head1">
               {% literal texts, 'contact-titulo', L %}
               {% literal texts, 'contact-oficinas', L %}
-            </h1> 
+            </h1>
           </div>
-        </div>       
+        </div>
       {% endif %}
 
       <!-- MOBILE -->
       {% if site == 'vanguard' %}
-      {% else %}    
-      <div class="title-big mobile pure-u-1">       
+      {% else %}
+      <div class="title-big mobile pure-u-1">
         <div class="bigh">
           <h1 class="head1">{% literal texts, 'contact-titulo', L %}</h1>
         </div>
       </div>
       {% endif %}
-      
-    </section>
-
-    <section class="contact-main">
-      {% if site == 'vanguard' %}
-      <h2 class="head2">{% literal texts, 'contact-oficinas', L %}</h2>
-      {% else %}
-      {% endif %} 
-      {% for o in offices %}
-      <div class="img-content">
-
-        <div class="img-city pure-u-1-8">
-          <div class="office">
-          {% svg
-             constants.SERVER + "/wopi/files/Geo/Office/" + o.id +"/Image/contents?access_token=" + token,
-             o.Location
-          %}
-          </div>
-        </div>
-
-        <div class="contact-content pure-u-1 pure-u-lg-5-6">
-          <div class="text-location pure-u-1 pure-u-lg-14-24">
-            <h2 class="head3">{{o.Location}}</h2>
-            <h3>{{o.Address}}</h3>
-            {% if o.Email %}
-            <h3>
-              <em class="icon-envelope"></em>
-              <span><a href="mailto:{{o.Email}}" target="_blank">{{o.Email}}</a></span>
-            </h3>
-            {% endif %}
-            {% if o.Phone != '' %}
-            <h3>
-              <em class="icon-call"></em>
-              <span><a href="tel:{{o.Phone}}" target="_blank">{{o.Phone}}</a></span>
-            </h3>
-            {% endif %}
-          </div>
-          <div class="map pure-u-1 pure-u-lg-10-24">
-            <div class="pure-u-1" style="width:99%;height:320px;" id="map-{{o.id}}"></div>
-          </div>
-        </div>
-
-      </div>
-      {% endfor %}
     </section>
 
     <section class="form {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
       <h2 class="head2 title">
         {% literal texts, 'contact-contactanos', L %}
-      </h2>      
+      </h2>
       <form id="form" onsubmit="post(event)">
         <div class="form-container pure-g">
           <div class="pure-u-1 pure-u-md-1-2">
@@ -187,6 +143,49 @@ tags: page
           </div>
         </div>
       </form>
+    </section>
+
+    <section class="contact-main">
+      {% if site == 'vanguard' %}
+      <h2 class="head2">{% literal texts, 'contact-oficinas', L %}</h2>
+      {% else %}
+      {% endif %}
+      {% for o in offices %}
+      <div class="img-content">
+
+        <div class="img-city pure-u-1-8">
+          <div class="office">
+          {% svg
+             constants.SERVER + "/wopi/files/Geo/Office/" + o.id +"/Image/contents?access_token=" + token,
+             o.Location
+          %}
+          </div>
+        </div>
+
+        <div class="contact-content pure-u-1 pure-u-lg-5-6">
+          <div class="text-location pure-u-1 pure-u-lg-14-24">
+            <h2 class="head3">{{o.Location}}</h2>
+            <h3>{{o.Address}}</h3>
+            {% if o.Email %}
+            <h3>
+              <em class="icon-envelope"></em>
+              <span><a href="mailto:{{o.Email}}" target="_blank">{{o.Email}}</a></span>
+            </h3>
+            {% endif %}
+            {% if o.Phone != '' %}
+            <h3>
+              <em class="icon-call"></em>
+              <span><a href="tel:{{o.Phone}}" target="_blank">{{o.Phone}}</a></span>
+            </h3>
+            {% endif %}
+          </div>
+          <div class="map pure-u-1 pure-u-lg-10-24">
+            <div class="pure-u-1" style="width:99%;height:320px;" id="map-{{o.id}}"></div>
+          </div>
+        </div>
+
+      </div>
+      {% endfor %}
     </section>
 
   </div>
