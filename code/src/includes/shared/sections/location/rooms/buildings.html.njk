@@ -172,6 +172,8 @@
 
                     <!-- Habitacion-individual -->
                     {% if minI < 99999 %}
+                    <!-- >> BCN -->
+                    {% if location.id != 1 %}
                     <div class="room-type {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
                       <a href="{{root}}{{langs[L].folder}}/{{langs[L].pages[name].url}}-{{b.Name | slugify}}.html#I">
                       <img src="{{root}}/assets/img/icono__hab_habitacion_individual.svg">
@@ -193,11 +195,15 @@
                       {% endif %}
                       </a>
                       <div id="{{b.id}}_I" class="pure-u-1 text-red"><p>&nbsp;</p></div>
+                    {% endif %}
                     </div>
+                    <!-- << BCN -->
                     {% endif %}
 
                     <!-- Habitacion-compartida -->
                     {% if minD < 99999 %}
+                    <!-- >> BCN -->
+                    {% if location.id != 1 %}
                     <div class="room-type {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
                       <a href="{{root}}{{langs[L].folder}}/{{langs[L].pages[name].url}}-{{b.Name | slugify}}.html#D">
                         <img src="{{root}}/assets/img/icono__hab_habitacion_compartida.svg">
@@ -221,9 +227,13 @@
                       <div id="{{b.id}}_D" class="pure-u-1 text-red"><p>&nbsp;</p></div>
                     </div>
                     {% endif %}
+                    <!-- << BCN -->
+                    {% endif %}
 
                     <!-- Apartamento-privado -->
                     {% if minF < 99999 %}
+                    <!-- >> BCN -->
+                    {% if location.id != 1 %}
                     <div class="room-type {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
                       <img src="{{root}}/assets/img/icono__hab_apartamento_privado.svg">
                       <h3 class="head4">{% literal texts, 'type-apartamento-privado', L %}</h3>
@@ -244,6 +254,8 @@
                       </a>
                       <div id="{{b.id}}_F" class="pure-u-1 text-red"><p>&nbsp;</p></div>
                     </div>
+                    {% endif %}
+                    <!-- << BCN -->
                     {% endif %}
 
                   </div>
@@ -406,7 +418,8 @@
                 <div id="{{b.id}}_I" class="pure-u-1 text-red"><p>&nbsp;</p></div>
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
-
+              <!-- >> BCN -->
+              {% if location.id != 1 %}
                 <span>{% literal texts, 'price-desde', L %}<span>
                 {% if minI <= disI %}
                 <h4>{{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
@@ -414,12 +427,13 @@
                 <h4 class="linethru">{{minI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 <h4 class="red">{{disI|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 {% endif %}
-
                 <button 
                   class="btn-secondary green-button" 
                   onclick="location.href='{{root}}{{langs[L].folder}}/{{langs[L].pages[name].url}}-{{b.Name | slugify}}.html#I'">
                   {% literal texts, 'price-mas', L %}
                 </button>
+              {% endif %}
+              <!-- << BCN -->
               </div>
             </div>
             {% endif %}
@@ -435,7 +449,8 @@
                 <div id="{{b.id}}_D" class="pure-u-1 text-red"><p>&nbsp;</p></div>
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
-
+              <!-- >> BCN -->
+              {% if location.id != 1 %}
                 <span>{% literal texts, 'price-desde', L %}<span>
                 {% if minD <= disD %}
                 <h4>{{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
@@ -443,12 +458,13 @@
                 <h4 class="linethru">{{minD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 <h4 class="red">{{disD|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 {% endif %}
-
                 <button 
                   class="btn-secondary green-button" 
                   onclick="location.href='{{root}}{{langs[L].folder}}/{{langs[L].pages[name].url}}-{{b.Name | slugify}}.html#D'">
                   {% literal texts, 'price-mas', L %}
                 </button>
+              {% endif %}
+              <!-- << BCN -->
               </div>
             </div>
             {% endif %}
@@ -464,7 +480,8 @@
                 <div id="{{b.id}}_F" class="pure-u-1 text-red"><p>&nbsp;</p></div>
               </div>              
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
-
+              <!-- >> BCN -->
+              {% if location.id != 1 %}
                 <span>{% literal texts, 'price-desde', L %}<span>
                 {% if minF <= disF %}
                 <h4>{{minF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
@@ -472,12 +489,13 @@
                 <h4 class="linethru">{{minF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 <h4 class="red">{{disF|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                 {% endif %}
-
                 <button 
                   class="btn-secondary green-button" 
                   onclick="location.href='{{root}}{{langs[L].folder}}/{{langs[L].pages['flats'].url}}-{{b.Name | slugify}}.html'">
                   {% literal texts, 'price-mas', L %}
                 </button>
+              {% endif %}
+              <!-- << BCN -->
               </div>
             </div>
             {% endif %}

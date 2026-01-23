@@ -91,6 +91,8 @@
     </div>
 
     <div class="option pure-u-1">
+    <!-- >> BCN -->
+    {% if location.id != 1 %}
       {% for f in flats | find('id', 'eq', building.id) %}
       {% for t in f.Flat_subtypes | find('Code', 'eq', p.Code) %}
       {% if loop.index == 1 %}      
@@ -125,6 +127,8 @@
       {% endif %}
       {% endfor %}
       {% endfor %}
+    {% endif %}
+    <!-- << BCN -->
     </div> 
 
     <div id="{{p.Code}}" data-id="{{p.Code}}" class="pure-u-1 text-red"><p>...</p></div>
@@ -152,6 +156,8 @@
     </section>
 
     <div class="align-end pure-u-1">
+    <!-- >> BCN -->
+    {% if location.id != 1 %}
       {% for f in flats | find('id', 'eq', building.id) %}
       {% for t in f.Flat_subtypes | find('Code', 'eq', p.Code) %}
       {% if loop.index == 1 %}
@@ -186,6 +192,8 @@
       {% endif %}
       {% endfor %}
       {% endfor %}
+    {% endif %}
+    <!-- << BCN -->
     </div>
     
     {% if site != 'vanguard' %}

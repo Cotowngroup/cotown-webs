@@ -59,8 +59,12 @@
         {% endfor %}
         <div class="info">
           <div class="address">{{b.Name}}</div>
+          <!-- >> BCN -->
+          {% if location.id != 1 %}
           <div class="from">{% literal texts, 'price-desde', L %}</div>
           <div class="price">{{min|number(L)}} €/{% literal texts, 'price-mes', L %}</div>
+          {% endif %}
+          <!-- << BCN -->
         </div>
       </div>
     </div>

@@ -111,6 +111,8 @@
             </label>
           </div>
           <div class="right">
+          <!-- >> BCN -->
+          {% if building.District.Location.id != 1 %}
             {% if f.Rent_pct %}{% set pct = f.Rent_pct %}{% else %}{% set pct = 1.0 %}{% endif %}
             {% if pct != 1 %}
             <p data-price="f"  class="right linethru hidden">{% literal texts, 'price-desde', L %} {{f.Rent_long       |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
@@ -136,6 +138,8 @@
             <p data-price="mn" class="right hidden" id="m_{{p.Code}}_{{f.Code}}">  {{f.Rent_medium_next|round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
             <p data-price="sn" class="right hidden" id="s_{{p.Code}}_{{f.Code}}">  {{f.Rent_short_next |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
             {% endif %}
+          {% endif %}
+          <!-- << BCN -->
           </div>
         </div>
         <div id="{{p.Code}}_{{f.Code}}" data-id="{{p.Code}}" class="text-red"><p>...</p></div>
