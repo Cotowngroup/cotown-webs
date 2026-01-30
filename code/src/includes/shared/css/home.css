@@ -838,8 +838,7 @@ main .container-main .first-contain.home.cotown .text p {
 
 .cotownity .text-container .head2 {
     font-family: var(--title-font);
-    padding: 1em 0;
-    .partners.vanguard .text-container .head2.titlefont-size: var(--big-title);
+    font-size: var(--big-title);
     font-weight: var(--400);
     line-height: 40px;
     text-transform: uppercase;
