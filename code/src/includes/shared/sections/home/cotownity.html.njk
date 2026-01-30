@@ -1,34 +1,13 @@
 <section class="cotownity {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}" >
   {% if site == 'vanguard' %} 
     <div class="container-cotownity pure-g">
-      <div class="pure-u-1 pure-u-lg-10-24">
-        <div class="left">
-          <div class="coral">
-            <div class="head2">{% literal texts, 'home-cotownity-titulo', L %}</div>
-            {% image
-            constants.SERVER + "/wopi/files/Marketing/Media/" + images['cotownity'].id +"/Image/contents?access_token=" + token,
-            L, "community", "community", "community", "",
-            [1280], ""
-            %}
-            <div class="last-contain">
-              <div class="insta-fb">
-                <em class="icon-instagram"></em>
-                <em class="icon-facebook"></em>
-              </div>
-            </div>
-          </div>
+      <div class="pure-u-1">
+        <div class="text-container">
+          <h2 class="head2 title">{% literal texts, 'home-cotownity-titulo', L %}</h2>
         </div>
-        <div {% if site == 'vanguard' %}class="feeling"{% else %}class="feeling cotown"{% endif %}>
-          <div class="head2 title-feel">{% literal texts, 'home-cotownity-hashtag', L %}</div>
+        <div class="widget">
+          {% literal texts, 'home-cotownity-tag', L %}
         </div>
-      </div>
-      <div class="pure-u-1 pure-u-lg-14-24">
-        <div class="right">
-          <div class="widget">
-            {% literal texts, 'home-cotownity-tag', L %}
-          </div>
-        </div>
-      </div>
     </div>
   {% else %}
     <div class="container-cotownity cotown pure-g">
