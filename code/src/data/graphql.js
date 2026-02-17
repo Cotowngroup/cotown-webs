@@ -7,6 +7,7 @@ module.exports = async (query, config, name) => {
   const K = require('./constants');
   const token = require('./token');
   const fetch = require('node-fetch');
+  K.HEADER['Authorization'] = 'Bearer ' + await token();
 
   console.log('Retrieving GraphQL content ' + name + ' from ' + config.site);
   
