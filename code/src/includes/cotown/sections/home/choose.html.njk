@@ -6,7 +6,6 @@
   <div class="pure-g container">  
     <div class="pure-u-lg-1-2 pure-u-1 img-container">
       <a href="{{root}}{{langs[L].folder}}/{{langs[L].pages['locations'].url}}.html">
-        
           <div class="img cotown">
             {% image
               constants.SERVER + "/wopi/files/Marketing/Media/" + images['apartamento-privado'].id +"/Image/contents?access_token=" + token,
@@ -14,15 +13,14 @@
               [1280], ""
             %}
           </div>
-          <div class="img-title cotown">
-            <h3 class="head6">
-            {% literal texts, 'home-pisazos-apartamento', L %}
-            <br/>
-            {% literal texts, 'home-pisazos-privado', L %}
-            </h3>
-          </div>          
-       
       </a>
+      <div class="img-title cotown">
+        <h3 class="head6">
+        {% literal texts, 'home-pisazos-apartamento', L %}
+        <br/>
+        {% literal texts, 'home-pisazos-privado', L %}
+        </h3>
+      </div>          
     </div>
 
     <div class="pure-u-lg-1-2 pure-u-1 img-container">
@@ -34,14 +32,14 @@
               [1280], ""
             %}
           </div>
-          <div class="img-title cotown second">
-            <h3 class="head6">
-            {% literal texts, 'home-pisazos-piso', L %}
-            <br/>
-            {% literal texts, 'home-pisazos-compartido', L %}
-            </h3>
-          </div>
       </a>
+      <div class="img-title cotown second">
+        <h3 class="head6">
+        {% literal texts, 'home-pisazos-piso', L %}
+        <br/>
+        {% literal texts, 'home-pisazos-compartido', L %}
+        </h3>
+      </div>
     </div>
   </div>
 

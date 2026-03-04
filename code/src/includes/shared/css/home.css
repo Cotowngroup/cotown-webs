@@ -693,10 +693,6 @@ main .container-main .first-contain.home.cotown .text p {
     text-transform: none;
 }
 
-.servicios.cotown .text-container p.subtitle {
-    display: none;
-}
-
 .servicios.cotown .servicios-container .services-cards {
     justify-content: flex-start;
     align-items: flex-start;
