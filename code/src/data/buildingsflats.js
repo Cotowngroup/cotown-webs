@@ -89,5 +89,9 @@ module.exports = async (config) => {
     }
   }`;
   const data = await gql(QUERY, config, 'buildings');
-  return data.data;
+  return data.data.map(building =>
+    building.Code === 'SAR326'
+      ? { ...building, Building_type_id: 1 }
+      : building
+  );  
 };
