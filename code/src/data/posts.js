@@ -59,5 +59,10 @@ module.exports = async (config) => {
     }
   }`;
   const data = await gql(QUERY, config, 'posts');
-  return data.data;
+  const sanitizeRichContent = (str) => str ? str.replace(/&nbsp;/g, ' ') : str;
+  return data.data.map((post) => ({
+    ...post,
+    Rich_content: sanitizeRichContent(post.Rich_content),
+    Rich_content_en: sanitizeRichContent(post.Rich_content_en),
+  }));  
 };
