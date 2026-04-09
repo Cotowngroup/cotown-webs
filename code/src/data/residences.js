@@ -8,6 +8,7 @@ module.exports = async (config) => {
       where: { 
         Segment_id: { EQ: $id } 
         Building_type_id: { EQ: 3 } 
+        Code: { NE: "SAR326" } 
       } 
     ) {
       id
@@ -85,9 +86,5 @@ module.exports = async (config) => {
     }
   }`;
   const data = await gql(QUERY, config, 'buildings');
-  return data.data.map(building =>
-    building.Code === 'SAR326'
-      ? { ...building, Building_type_id: 1 }
-      : building
-  );  
+  return data.data;
 };
