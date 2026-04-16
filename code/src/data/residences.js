@@ -6,8 +6,8 @@ module.exports = async (config) => {
     data: Building_BuildingList ( 
       orderBy: [{ attribute: Name }]
       where: { 
-        Segment_id: { EQ: $id } 
-        Building_type_id: { EQ: 3 } 
+        Active: { EQ: true }
+        Building_type_id: { EQ: 3 }
         Code: { NE: "SAR326" } 
       } 
     ) {
@@ -16,7 +16,6 @@ module.exports = async (config) => {
       Name
       Address
       Lat_lon
-      Segment_id
       Building_type_id
       District: DistrictViaDistrict_id {
         Name
@@ -35,7 +34,29 @@ module.exports = async (config) => {
           Name
         }
       }
-      Resources: ResourceListViaBuilding_id {
+      Texts: Building_textListViaBuilding_id (
+        where: { Segment_id: { EQ: $id } }
+      ) {
+        Web_type
+        Segment_id
+        Description
+        Description_en
+        Details
+        Details_en
+        Title
+        Title_en
+        Meta_description
+        Meta_description_en
+        Header
+        Header_en
+        Tour
+      }
+      Resources: ResourceListViaBuilding_id (
+        joinType: INNER
+        where: { 
+          Segment_id: { EQ: $id }
+        }
+      ) {
         id
         Code
         Sale_type

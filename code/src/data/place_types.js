@@ -13,6 +13,7 @@ module.exports = async (config) => {
       Texts: Resource_place_textListViaPlace_type_id ( 
         where: { Segment_id: { EQ: $id } }
       ) {
+        Building_id
         Description
         Description_en
       }
