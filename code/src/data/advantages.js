@@ -6,9 +6,7 @@ module.exports = async (config) => {
     data: Marketing_AdvantagesList (
       orderBy: [{ attribute: Order }]
       where: {
-        AND: [
-          { Segment_id: { EQ: $id } }
-        ]
+        Segment_id: { EQ: $id }
       }
     ) {
       id

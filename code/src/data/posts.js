@@ -6,10 +6,8 @@ module.exports = async (config) => {
     data: Marketing_PostList (
       orderBy: [{ attribute: Publish_date, direction:DESC } ]
       where: { 
-        AND: [
-          { Segment_id: { EQ: $id } } 
-          { Published: {EQ: true } }
-        ]
+        Segment_id: { EQ: $id } 
+        Published: {EQ: true }
       }
     ) {
       id
@@ -34,7 +32,7 @@ module.exports = async (config) => {
         Description
         Description_en
         Image {
-            name
+          name
         }
       }
       Tags: Post_tagListViaPost_id {

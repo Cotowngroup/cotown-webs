@@ -12,24 +12,24 @@ module.exports = async (config) => {
       Name_en
       DistrictListViaLocation_id (joinType: INNER) {
         BuildingListViaDistrict_id (joinType: INNER) {
-            ResourceListViaBuilding_id (
-                joinType: INNER
-                where: { Sale_type: { IN: [plazas, ambos] } }
-            ) { 
-                id
-            }
+          ResourceListViaBuilding_id (
+            joinType: INNER
+            where: { Sale_type: { IN: [plazas, ambos] } }
+          ) { 
+            id
+          }
         }
       }
       Texts: Location_textListViaLocation_id (
         joinType: INNER
         where: { Segment_id: { EQ: $id } }
       ) {
-          Description
-          Description_en
-          Title
-          Title_en
-          Title_flat
-          Title_flat_en
+        Description
+        Description_en
+        Title
+        Title_en
+        Title_flat
+        Title_flat_en
       }
       Images: Media_locationListViaLocation_id (
         joinType: INNER
@@ -43,6 +43,6 @@ module.exports = async (config) => {
       }
     }
   }`;
-  const data = await gql(QUERY, config, 'locations');
+  const data = await gql(QUERY, config, 'locations rooms');
   return data.data;
 };

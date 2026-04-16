@@ -6,10 +6,8 @@ module.exports = async (config) => {
     data: Marketing_BannerList (
       orderBy: [{ attribute: id }]
       where: {
-        AND: [
-          { Segment_id: { EQ: $id } }
-          { Published: { EQ: true } }
-        ]
+        Segment_id: { EQ: $id }
+        Published: { EQ: true }
       }
     ) {
       id

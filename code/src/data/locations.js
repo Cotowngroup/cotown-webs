@@ -14,12 +14,12 @@ query data ($id: Int) {
         joinType: INNER
         where: { Segment_id: { EQ: $id } }
       ) {
-          Description
-          Description_en
-          Title
-          Title_en
-          Title_flat
-          Title_flat_en
+        Description
+        Description_en
+        Title
+        Title_en
+        Title_flat
+        Title_flat_en
       }
       Images: Media_locationListViaLocation_id (
         joinType: INNER

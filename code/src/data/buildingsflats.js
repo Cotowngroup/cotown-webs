@@ -6,8 +6,6 @@ module.exports = async (config) => {
     data: Building_BuildingList ( 
       orderBy: [{ attribute: Order }]
       where: { 
-        Segment_id: { EQ: $id } 
-        Building_type_id: { LE: 2 } 
         Active: { EQ: true }
       } 
     ) {
@@ -16,29 +14,6 @@ module.exports = async (config) => {
       Name
       Address
       Lat_lon
-      Description
-      Description_en
-      Description_private
-      Description_private_en
-      Details
-      Details_en
-      Details_private
-      Details_private_en
-      Title
-      Title_en
-      Title_private
-      Title_private_en
-      Meta_description
-      Meta_description_en
-      Meta_description_private
-      Meta_description_private_en
-      Header
-      Header_en
-      Header_private
-      Header_private_en
-      Tour
-      Tour_private
-      Segment_id
       Building_type_id
       District: DistrictViaDistrict_id {
         Name
@@ -57,9 +32,29 @@ module.exports = async (config) => {
           Name
         }
       }
+      Texts: Building_textListViaBuilding_id (
+        where: { Segment_id: { EQ: $id } }
+      ) {
+        Web_type
+        Segment_id
+        Description
+        Description_en
+        Details
+        Details_en
+        Title
+        Title_en
+        Meta_description
+        Meta_description_en
+        Header
+        Header_en
+        Tour
+      }
       Resources: ResourceListViaBuilding_id (
-            joinType: INNER
-            where: { Sale_type: { IN: [completo, ambos] } }
+        joinType: INNER
+        where: { 
+          Segment_id: { EQ: $id }
+          Sale_type: { IN: [ completo, ambos ] }
+        }
       ) {
         id
         Code
@@ -88,7 +83,7 @@ module.exports = async (config) => {
       }
     }
   }`;
-  const data = await gql(QUERY, config, 'buildings');
+  const data = await gql(QUERY, config, 'buildings flats');
   return data.data.map(building =>
     building.Code === 'SAR326'
       ? { ...building, Building_type_id: 1 }
