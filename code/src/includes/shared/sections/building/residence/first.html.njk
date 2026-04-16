@@ -1,13 +1,14 @@
+{% set building_texts = building.Texts | find('Web_type', 'eq', 'compartido') | first %}
 <section class="first-contain pure-u-1 {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}" >
 
   <!-- Photo carousel -->
   <section id="image-carousel" class="splide first-slider pure-u-1" aria-label="Beautiful Images">
     <div class="title-button" onclick="thumb('big', splidebig, splidefirst);">
-      <p class="head6" style="font-weight:600; text-align:left; padding: 0 10px;">{{ building | translate('Description', L) | safe }}</p>
+      <p class="head6" style="font-weight:600; text-align:left; padding: 0 10px;">{{ building_texts | translate('Description', L) | safe }}</p>
       <div class="head1">{{building.Name}}</div>
-      <h1 class="head6" style="font-style: italic;padding: 0 10px;">{{ building | translate('Header', L) | safe }}</h1>
-      {% if building.Tour %}
-      <button class="btn-secondary" onclick="open_tour('{{building.Tour}}')">
+      <h1 class="head6" style="font-style: italic;padding: 0 10px;">{{ building_texts | translate('Header', L) | safe }}</h1>
+      {% if building_texts.Tour %}
+      <button class="btn-secondary" onclick="open_tour('{{building_texts.Tour}}')">
         {% literal texts, 'rooms-tour-virtual', L %}
       </button>
       {% endif %}
@@ -53,7 +54,7 @@
 
     <!-- Description -->
     <div class="text-first pure-u-23-24 pure-u-lg-12-24">
-    {{ building | translate('Details', L) | markdown | safe }}
+    {{ building_texts | translate('Details', L) | markdown | safe }}
     </div>
 
     <!-- Services -->
@@ -98,9 +99,9 @@
   <div class="pure-u-1 after-slide bottom">
 
     <div class="text-first pure-u-23-24 pure-u-lg-12-24">
-      {% if building.Tour %}
+      {% if building_texts.Tour %}
       <button class="btn-text">
-        <a href="#" onclick="open_tour('{{building.Tour}}')">{% literal texts, 'rooms-tour-virtual', L %}</a>
+        <a href="#" onclick="open_tour('{{building_texts.Tour}}')">{% literal texts, 'rooms-tour-virtual', L %}</a>
         </button>
       {% endif %}
       <button class="btn-text">

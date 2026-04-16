@@ -76,6 +76,7 @@
         <ul class="splide__list carousel-main-list">
 
           {% for b in buildings | find('District.Location.id', 'eq', location.id) | find('Building_type_id', 'lt', 3) %}
+          {% set b_texts = b.Texts | find('Web_type', 'eq', 'privado') | first %}
           {% if flats | find('id', 'eq', b.id) | length > 0 %}
 
           <li class="splide__slide main-slide">
@@ -136,7 +137,7 @@
                     {% else %}
                     <h2 class="head3">{{b.Name}}</h2>
                     {% endif %}
-                    <p>{{ b | translate ('Description_private', L) | safe }}</p>
+                    <p>{{ b_texts | translate ('Description', L) | safe }}</p>
                   </div>
 
                   <!-- Internal slider -->

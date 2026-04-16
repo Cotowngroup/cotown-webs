@@ -210,6 +210,11 @@ module.exports = (eleventyConfig) => {
       let metadata = await Image(src, {
         formats: ['svg'],
         dryRun: true,
+        useCache: true,
+        cacheOptions: { 
+          duration: "12h",
+          removeUrlQueryParams: true,
+        },
       });
       return metadata.svg[0].buffer.toString();
     } catch (err) {
@@ -262,9 +267,9 @@ module.exports = (eleventyConfig) => {
         formats: ["webp", "jpeg"],
         urlPath: eleventyConfig.root + "/assets/img/",
         outputDir: eleventyConfig.outputDir + eleventyConfig.root + "/assets/img/",
-        useCache: false,
+        useCache: true,
         cacheOptions: { 
-          duration: "1h",
+          duration: "12h",
           removeUrlQueryParams: true,
         },
         filenameFormat: function (id, src, width, format, options) {

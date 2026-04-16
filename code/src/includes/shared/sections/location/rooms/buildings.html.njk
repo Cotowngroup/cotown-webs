@@ -77,6 +77,7 @@
         <ul class="splide__list carousel-main-list">
 
           {% for b in buildings | find('District.Location.id', 'eq', location.id) | find('Building_type_id', 'lt', 3) %}
+          {% set b_texts = b.Texts | find('Web_type', 'eq', 'compartido') | first %}
           {% set ra = b.Resources | find('Sale_type', 'eq', 'ambos') | length %}
           {% set rp = b.Resources | find('Sale_type', 'eq', 'plazas') | length  %}
           {% if ra > 0 or rp > 0 %}
@@ -139,7 +140,7 @@
                     {% else %}
                     <h2 class="head3">{{b.Name}}</h2>
                     {% endif %}
-                    <p>{{ b | translate ('Description', L) | safe }}</p>
+                    <p>{{ b_texts | translate ('Description', L) | safe }}</p>
                   </div>
 
                   <!-- Place types -->

@@ -1,19 +1,21 @@
+{% set building_texts = building.Texts | find('Web_type', 'eq', 'privado') | first %}
+{{building_texts|dump}}
 <section class="first-contain pure-u-1 {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
 
   <!-- Photo carousel -->
   <section id="image-carousel" class="splide first-slider pure-u-1" aria-label="Beautiful Images">
-    <div class="title-button {% if building.Tour_private %} with-tour {% else %} no-tour {% endif %}"{% if not building.Tour_private %} onclick="thumb('big', splidebig, splidefirst);"{% endif %}>
-      <p class="head6" style="font-weight:600; text-align:left; padding: 0 10px;">{{ building | translate('Description_private', L) | safe }}</p>
+    <div class="title-button {% if building_texts.Tour %} with-tour {% else %} no-tour {% endif %}"{% if not building_texts.Tour %} onclick="thumb('big', splidebig, splidefirst);"{% endif %}>
+      <p class="head6" style="font-weight:600; text-align:left; padding: 0 10px;">{{ building_texts | translate('Description', L) | safe }}</p>
       <div class="head1">{{building.Name}}</div>
-      <h1 class="head6" style="font-style: italic;padding: 0 10px;">{{ building | translate('Header_private', L) | safe }}</h1>
+      <h1 class="head6" style="font-style: italic;padding: 0 10px;">{{ building_texts | translate('Header', L) | safe }}</h1>
       {% if site == 'vanguard' %}
       {% else %}
       <div class="sello-cotown pure-u-1">
         <img class="img-sello" alt="sello" src="{{root}}/assets/img/sello.svg">
       </div>    
       {% endif %}
-      {% if building.Tour_private %}
-      <button class="btn-secondary" onclick="open_tour('{{building.Tour_private}}')">
+      {% if building_texts.Tour %}
+      <button class="btn-secondary" onclick="open_tour('{{building_texts.Tour}}')">
         {% literal texts, 'rooms-tour-virtual', L %}
         {% if site == 'vanguard' %}
         {% else %}
@@ -64,7 +66,7 @@
 
     <!-- Description -->
     <div class="text-first pure-u-23-24 pure-u-lg-12-24">
-    {{ building | translate('Details_private', L) | markdown | safe }}
+    {{ building_texts | translate('Details', L) | markdown | safe }}
     </div>
 
     <!-- Services -->
@@ -109,9 +111,9 @@
   <div class="pure-u-1 after-slide bottom">
 
     <div class="text-first pure-u-23-24 pure-u-lg-12-24">
-      {% if building.Tour_private %}
+      {% if building_texts.Tour %}
       <button class="btn-text">
-        <a href="#" onclick="open_tour('{{building.Tour_private}}')">{% literal texts, 'rooms-tour-virtual', L %}
+        <a href="#" onclick="open_tour('{{building_texts.Tour}}')">{% literal texts, 'rooms-tour-virtual', L %}
           {% if site == 'vanguard' %}
           {% else %}
             <div class="mini-border"></div>

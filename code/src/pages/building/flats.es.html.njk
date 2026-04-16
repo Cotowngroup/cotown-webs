@@ -2,8 +2,8 @@
 name: flats
 eleventyComputed:
     L: "es"
-    title: "{{building | translate('Title_private',L)}}"
-    description: "{{building | translate('Meta_description_private',L)}}"
+    title: "{{building.Texts | find('Web_type', 'eq', 'privado') | first | translate('Title',L)}}"
+    description: "{{building.Texts | find('Web_type', 'eq', 'privado') | first | translate('Meta_description',L)}}"
     alt:
       es: "{{langs.es.folder}}/{{langs.es.pages[name].url}}-{{building.Name | slugify}}.html"
       en: "{{langs.en.folder}}/{{langs.en.pages[name].url}}-{{building.Name | slugify}}.html"
