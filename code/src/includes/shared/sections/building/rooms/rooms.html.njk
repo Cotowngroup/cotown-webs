@@ -88,9 +88,10 @@
 
     <!-- Description -->
     <div class="text pure-u-1">
-    {% set custom_text  = place_types[p.Code].Texts | find ('Building_id', 'eq', building.id) | first %}
-    {% set default_text = place_types[p.Code].Texts | find ('Building_id', 'eq', null) | first %}
-    {{ (custom_text or default_text) | translate('Description', L) | markdown | safe }}
+    {% set building_text = place_types[p.Code].Texts | find ('Building_id', 'eq', building.id) | first %}
+    {% set location_text = place_types[p.Code].Texts | find ('Location_id', 'eq', building.District.Location.id) | first %}
+    {% set default_text  = place_types[p.Code].Texts | find ('Building_id', 'eq', null) | find ('Location_id', 'eq', null) | first %}
+    {{ (building_text or location_text or default_text) | translate('Description', L) | markdown | safe }}
     </div>
 
     <form class="pure-form">
