@@ -19,11 +19,18 @@ module.exports = async (config) => {
       Building_type_id
       District: DistrictViaDistrict_id {
         Name
-        Description
-        Description_en
         Location: LocationViaLocation_id {
           id
           Name
+        }
+        Texts: District_textListViaDistrict_id (
+          joinType: INNER
+          where: { 
+            Segment_id: { EQ: $id }
+          }
+        ) {
+          Description
+          Description_en
         }
         Photos: Media_districtListViaDistrict_id (
           orderBy: [{ attribute: Order }]
@@ -33,8 +40,7 @@ module.exports = async (config) => {
           Order
           Name
         }
-      }
-      Texts: Building_textListViaBuilding_id (
+      }      Texts: Building_textListViaBuilding_id (
         where: { Segment_id: { EQ: $id } }
       ) {
         Web_type

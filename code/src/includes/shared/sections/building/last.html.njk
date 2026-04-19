@@ -14,7 +14,7 @@
     <h2 class="head2">{% literal texts, 'rooms-bienvenido', L %} <span>{{building.District.Name}}</span></h2>
     {% endif %}
     <div class="text pure-u-23-24">
-      {{ building.District | translate('Description', L) | markdown | safe }}
+      {{ building.District.Texts[0] | translate('Description', L) | markdown | safe }}
     </div>
   </div>
 
