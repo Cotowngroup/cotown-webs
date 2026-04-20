@@ -1,5 +1,4 @@
 {% set building_texts = building.Texts | find('Web_type', 'eq', 'privado') | first %}
-{{building_texts|dump}}
 <section class="first-contain pure-u-1 {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
 
   <!-- Photo carousel -->
