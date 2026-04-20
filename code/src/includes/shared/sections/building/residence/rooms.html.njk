@@ -113,9 +113,12 @@
 
     <!-- Description -->
     <div class="text pure-u-1">
-    {% set building_text = place_types[p.Code].Texts | find ('Building_id', 'eq', building.id) | first %}
-    {% set location_text = place_types[p.Code].Texts | find ('Location_id', 'eq', building.District.Location.id) | first %}
-    {% set default_text  = place_types[p.Code].Texts | find ('Building_id', 'eq', null) | find ('Location_id', 'eq', null) | first %}
+    {% set matches = place_types[p.Code].Texts | find('Building_id', 'eq', building.id) %}
+    {% if matches | length > 0 %}{% set building_text = matches | first %}{% else %}{% set building_text = None %}{% endif %}
+    {% set matches = place_types[p.Code].Texts | find ('Location_id', 'eq', building.District.Location.id) %}
+    {% if matches | length > 0 %}{% set location_text = matches | first %}{% else %}{% set location_text = None %}{% endif %}
+    {% set matches = place_types[p.Code].Texts | find ('Building_id', 'eq', null) | find ('Location_id', 'eq', null) %}
+    {% if matches | length > 0 %}{% set default_text = matches | first %}{% else %}{% set default_text = None %}{% endif %}
     {{ (building_text or location_text or default_text) | translate('Description', L) | markdown | safe }}
     </div>
 
