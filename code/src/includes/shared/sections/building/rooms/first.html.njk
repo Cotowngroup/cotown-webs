@@ -66,6 +66,10 @@
     <!-- Description -->
     <div class="text-first pure-u-23-24 pure-u-lg-12-24">
     {{ building_texts | translate('Details', L) | markdown | safe }}
+    <!--
+    {% set legal = texts['texto-legal'][L].replace('{legal}', 'https://back.cotown.com/api/v1/legal/' + building.Code + '.pdf') %}
+    {{ legal | markdown | safe }}
+    -->
     </div>
 
     <!-- Services -->
