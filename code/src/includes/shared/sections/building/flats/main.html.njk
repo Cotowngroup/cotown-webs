@@ -30,8 +30,7 @@
 
       <!-- Map -->
       <section class="map {% if site == 'cotown' %} cotown  {% else %} vanguard {% endif %}">
-        <div class="map {% if site == 'cotown' %} cotown  {% else %} vanguard {% endif %}" id="map">
-        </div>
+        <div class="map {% if site == 'cotown' %} cotown  {% else %} vanguard {% endif %}" id="map"></div>
       </section>
 
     </section>
@@ -81,7 +80,8 @@ new Splide("#splideServices", {
 // Sliders tipos de piso
 {% for r in flats | find('id', 'eq', building.id) %}
 {% for p in r.Flat_subtypes %}
-{% if flat_subtypes[p.Code].Tour == "" %}
+{% set subtype_texts = flat_subtypes[p.Code].Texts[0] %}
+{% if subtype_texts.Tour == "" %}
 var big_{{p.id}} = new Splide('#big-{{p.Code}}', { 
   type: 'fade', 
   height: '90vh',
