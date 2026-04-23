@@ -16,6 +16,7 @@ query data ($id: Int) {
             joinType: INNER
             where: { 
               Segment_id: { EQ: $id }
+              Sale_type: { IN: [plazas, completo, ambos] } 
             }
           ) { 
             id

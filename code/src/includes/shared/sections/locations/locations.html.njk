@@ -26,7 +26,6 @@
       <div class="list-container pure-u-1">
 
         {% for l in locations %}
-
         {% set rooms = false %}
         {% set flats = false %}
         {% set residences = buildings | find('District.Location.id', 'eq', l.id) | find('Building_type_id', 'eq', 3) | length > 0 %}

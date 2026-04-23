@@ -1,8 +1,6 @@
-<section class="locations {% if site == 'vanguard' %} vanguard
-    {% else %} cotown {% endif %}">
+<section class="locations {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
 
   <div class="text-container">
-    
     <h2 {% if site == 'vanguard' %}class="head2 title"{% else %}class="head2 title cotown"{% endif %}>
       {% literal texts, 'home-localizaciones-titulo', L %}
     </h2>
@@ -13,7 +11,13 @@
       <div class="splide__track">
         <ul class="splide__list">
           {% for l in locations %}
-          {% if buildings | find('District.Location.id', 'eq', l.id) | length > 0 %}
+          {% set rooms = false %}
+          {% for b in buildings | find('District.Location.id', 'eq', l.id) | find('Building_type_id', 'lt', 3) %}
+            {% set ra = b.Resources | find('Sale_type', 'eq', 'ambos') | length %}
+            {% set rp = b.Resources | find('Sale_type', 'eq', 'plazas') | length  %}
+            {% if ra > 0 or rp > 0 %}{% set rooms = true %}{% endif %}
+          {% endfor %}
+          {% if rooms %}
           <li class="splide__slide">
             {% if site == "cotown" or l.Name != 'Valencia' %}
             <a href="{{root}}{{langs[L].folder}}/{{langs[L].pages['rooms'].url}}-{{l | translate('Name', L) | slugify}}.html">
@@ -44,7 +48,13 @@
       <div class="splide__track">
         <ul class="splide__list">
           {% for l in locations %}
-          {% if buildings | find('District.Location.id', 'eq', l.id) | length > 0 %}
+          {% set rooms = false %}
+          {% for b in buildings | find('District.Location.id', 'eq', l.id) | find('Building_type_id', 'lt', 3) %}
+            {% set ra = b.Resources | find('Sale_type', 'eq', 'ambos') | length %}
+            {% set rp = b.Resources | find('Sale_type', 'eq', 'plazas') | length  %}
+            {% if ra > 0 or rp > 0 %}{% set rooms = true %}{% endif %}
+          {% endfor %}
+          {% if rooms %}
           <li class="splide__slide">
             {% if site == "cotown" or l.Name != 'Valencia' %}
             <a href="{{root}}{{langs[L].folder}}/{{langs[L].pages['rooms'].url}}-{{l | translate('Name', L) | slugify}}.html">

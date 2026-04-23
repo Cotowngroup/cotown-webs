@@ -59,7 +59,8 @@ module.exports = async (config) => {
       Resources: ResourceListViaBuilding_id (
         joinType: INNER
         where: { 
-          Segment_id: { EQ: $id }
+          Segment_id: { EQ: $id } 
+          Sale_type: { IN: [plazas, completo, ambos] } 
         }
       ) {
         id

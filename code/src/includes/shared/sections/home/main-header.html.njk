@@ -12,7 +12,13 @@
         <select id="city" name="city" class="pure-u-1" onchange="get_types(this.value);" required>
           <option value="" disabled selected>{% literal texts, 'home-donde-seleccionar', L %}</option>
           {% for l in locations %}
-          {% if buildings | find('District.Location.id', 'eq', l.id) | length > 0 %}
+          {% set rooms = false %}
+          {% for b in buildings | find('District.Location.id', 'eq', l.id) | find('Building_type_id', 'lt', 3) %}
+            {% set ra = b.Resources | find('Sale_type', 'eq', 'ambos') | length %}
+            {% set rp = b.Resources | find('Sale_type', 'eq', 'plazas') | length  %}
+            {% if ra > 0 or rp > 0 %}{% set rooms = true %}{% endif %}
+          {% endfor %}
+          {% if rooms %}
           <option value="{{l.id}}" >{{ l | translate('Name', L)}}</option>
           {% endif %}
           {% endfor %}
@@ -53,7 +59,13 @@
         <select id="city" name="city" class="pure-u-1" onchange="get_types(this.value);" required>
           <option value="" disabled selected>{% literal texts, 'home-donde-seleccionar', L %}</option>
           {% for l in locations %}
-          {% if buildings | find('District.Location.id', 'eq', l.id) | length > 0 %}
+          {% set rooms = false %}
+          {% for b in buildings | find('District.Location.id', 'eq', l.id) | find('Building_type_id', 'lt', 3) %}
+            {% set ra = b.Resources | find('Sale_type', 'eq', 'ambos') | length %}
+            {% set rp = b.Resources | find('Sale_type', 'eq', 'plazas') | length  %}
+            {% if ra > 0 or rp > 0 %}{% set rooms = true %}{% endif %}
+          {% endfor %}
+          {% if rooms %}
           <option value="{{l.id}}" >{{ l | translate('Name', L)}}</option>
           {% endif %}
           {% endfor %}
