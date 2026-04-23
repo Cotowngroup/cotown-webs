@@ -81,7 +81,7 @@ new Splide("#splideServices", {
 {% for r in flats | find('id', 'eq', building.id) %}
 {% for p in r.Flat_subtypes %}
 {% set subtype_texts = flat_subtypes[p.Code].Texts[0] %}
-{% if subtype_texts.Tour == "" %}
+{% if not subtype_texts.Tour %}
 var big_{{p.id}} = new Splide('#big-{{p.Code}}', { 
   type: 'fade', 
   height: '90vh',
