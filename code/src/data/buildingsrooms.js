@@ -60,7 +60,7 @@ module.exports = async (config) => {
         joinType: INNER
         where: { 
           Segment_id: { EQ: $id }
-          Sale_type: { EQ: plazas }
+          Sale_type: { IN: [plazas, ambos] }
         }
       ) {
         id

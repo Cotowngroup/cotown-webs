@@ -14,7 +14,10 @@ query data ($id: Int) {
         BuildingListViaDistrict_id (joinType: INNER) {
           ResourceListViaBuilding_id (
             joinType: INNER
-            where: { Sale_type: { IN: [completo, ambos] } }
+            where: { 
+              Segment_id: { EQ: $id }
+              Sale_type: { IN: [completo, ambos] } 
+            }
           ) { 
             id
           }

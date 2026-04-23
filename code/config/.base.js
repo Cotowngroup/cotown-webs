@@ -212,7 +212,7 @@ module.exports = (eleventyConfig) => {
         dryRun: true,
         useCache: true,
         cacheOptions: { 
-          duration: "12h",
+          duration: "2h",
           removeUrlQueryParams: true,
         },
       });
@@ -269,7 +269,7 @@ module.exports = (eleventyConfig) => {
         outputDir: eleventyConfig.outputDir + eleventyConfig.root + "/assets/img/",
         useCache: true,
         cacheOptions: { 
-          duration: "12h",
+          duration: "2h",
           removeUrlQueryParams: true,
         },
         filenameFormat: function (id, src, width, format, options) {

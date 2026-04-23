@@ -14,7 +14,10 @@ module.exports = async (config) => {
         BuildingListViaDistrict_id (joinType: INNER) {
           ResourceListViaBuilding_id (
             joinType: INNER
-            where: { Sale_type: { IN: [plazas, ambos] } }
+            where: { 
+              Segment_id: { EQ: $id }
+              Sale_type: { IN: [plazas, ambos] } 
+            }
           ) { 
             id
           }
