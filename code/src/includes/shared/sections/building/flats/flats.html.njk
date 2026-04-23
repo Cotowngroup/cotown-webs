@@ -1,6 +1,7 @@
 {% set show = true %}
 {% for r in flats | find('id', 'eq', building.id) %}
 {% for p in r.Flat_subtypes %}
+{% set subtype_texts = flat_subtypes[p.Code].Texts[0] %}
 {% if f.Rent_pct %}{% set pct = f.Rent_pct %}{% else %}{% set pct = 1.0 %}{% endif %}
 
 <!-- Big photos -->
@@ -29,10 +30,11 @@
 
   <!-- LEFT -->
   <div class="left-carousel pure-u-1 pure-u-lg-11-24">
-    {% if flat_subtypes[p.Code].Tour != "" %}
+   
+    {% if subtype_texts.Tour != "" %}
 
     <section class="rooms-carousel">
-      <iframe style="width:100%; height:400px;" src="{{flat_subtypes[p.Code].Tour}}" frameborder="0" allowfullscreen>
+      <iframe style="width:100%; height:400px;" src="{{subtype_texts.Tour}}" frameborder="0" allowfullscreen>
     </section>
 
     {% else %}
@@ -79,7 +81,7 @@
 
     <!-- Title -->
     <div class="title-favorite pure-u-1">
-      <h3 class="head3">{{flat_subtypes[p.Code] | translate('Name', L)}}</h3>
+      <h3 class="head3">{{subtype_texts | translate('Name', L)}}</h3>
       <!--
       <em class="icon-heart"></em>
       -->
@@ -87,7 +89,7 @@
 
     <!-- Description -->
     <div class="text pure-u-1">
-    {{ flat_subtypes[p.Code] | translate('Description', L) | markdown | safe }}
+    {{ subtype_texts | translate('Description', L) | markdown | safe }}
     </div>
 
     <div class="option pure-u-1">

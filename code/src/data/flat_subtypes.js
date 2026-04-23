@@ -8,9 +8,13 @@ module.exports = async (config) => {
       Code
       Name
       Name_en
-      Description
-      Description_en
-      Tour
+      Texts: Resource_subtype_textListViaFlat_subtype_id ( 
+        where: { Segment_id: { EQ: $id } }
+      ) {
+        Description
+        Description_en
+        Tour
+      }
       Amenities: Resource_flat_amenityListViaFlat_subtype_id {
         Amenity: Resource_amenity_typeViaAmenity_type_id {
           id
@@ -32,10 +36,8 @@ module.exports = async (config) => {
     Code: o.Code, 
     Name: o.Name, 
     Name_en: o.Name_en,
-    Description: o.Description, 
-    Description_en: o.Description_en,
-    Amenities: o.Amenities,
-    Tour: o.Tour || ""
+    Texts: o.Texts,
+    Amenities: o.Amenities
   } });
   return(json); 
 };
