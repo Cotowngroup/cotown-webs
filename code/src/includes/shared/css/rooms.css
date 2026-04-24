@@ -84,9 +84,14 @@
   margin: 0 0 0 4em;
   padding: 1em 0 0;
 }
-.first .first-contain .text-first p {
+.first .first-contain .text-first p,
+.first .first-contain .text-first li,
+.first .first-contain .text-first a {
   font-size: 18px;
   line-height: 1.5;
+}
+.first .first-contain .text-first a {
+	color: var(--primary);
 }
 .first .first-contain .flat-services {
   text-align: center;
@@ -458,7 +463,9 @@ margin-bottom: 0.5em;
     right: 30%;
     top: 93%;
   }
-  .first .first-contain .text-first p {
+  .first .first-contain .text-first p,
+  .first .first-contain .text-first li,
+  .first .first-contain .text-first a {
     font-size: 22px;
   }
   .right-data .title-favorite h3, .right-data .title-favorite h4 {
@@ -521,7 +528,9 @@ margin-bottom: 0.5em;
   .first .first-contain .after-slide .text-first {
     margin: 0 1em 0 1em;
   }
-  .first .first-contain .text-first p {
+  .first .first-contain .text-first p,
+  .first .first-contain .text-first li,
+  .first .first-contain .text-first a {
     font-size: 14px;
   }
   .first .first-contain .flat-services {

@@ -84,9 +84,14 @@
   margin: 0 0 0 4em;
   padding: 1em 0 0;
 }
-.first .first-contain .text-first p {
+.first .first-contain .text-first p,
+.first .first-contain .text-first li,
+.first .first-contain .text-first a {
   font-size: 18px;
   line-height: 150%;
+}
+.first .first-contain .text-first a {
+	color: var(--primary);
 }
 .first .first-contain .flat-services {
   text-align: center;
@@ -576,7 +581,9 @@ margin-bottom: 0.5em;
     right: 30%;
     top: 93%;
   }
-  .first .first-contain .text-first p {
+  .first .first-contain .text-first p,
+  .first .first-contain .text-first li,
+  .first .first-contain .text-first a {
     font-size: 22px;
   }
   .right-data .title-favorite h3.right-data .title-favorite h4 {
