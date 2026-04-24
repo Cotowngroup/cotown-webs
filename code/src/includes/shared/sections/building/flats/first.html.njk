@@ -68,9 +68,7 @@
     {{ building_texts | translate('Details', L) | markdown | safe }}
     {% if building.District.Location.id == 1 %}
     {% set legal = texts['texto-legal'][L].replace('{legal}', 'https://back.cotown.com/api/v1/legal/ap/' + siteid + '/' + building.Code + '.pdf') %}
-    <!--!
     {{ legal | markdown | safe }}
-    -->
     {% endif %}
     </div>
 
