@@ -101,7 +101,7 @@
                     {% endif %}
                   </a>
 
-                  <!-- PROMO -->
+                  <!-- Promo -->
                   {% set rent_pct = 0.0 %}
                   {% set fee_pct = 0.0 %}
                   {% for x in promos %}
@@ -194,7 +194,7 @@
 
                   {% if min < 99999 %}
                   <div class="price">
-                  <!-- >> BCN -->
+                  <!--! >> BCN -->
                   {% if location.id != 1 %}
                     <p>{% literal texts, 'price-desde', L %}</p>
                     {% if dis <= min %}
@@ -205,7 +205,7 @@
                     <h4 class="head5">{{min|round|number(L)}} €/{% literal texts, 'price-mes', L %}</h4>
                     {% endif %}
                   {% endif %}
-                  <!-- << BCN -->
+                  <!--! << BCN -->
                   </div>
                   {% endif %}
 
@@ -246,7 +246,7 @@
         </div>
         </a>
 
-        <!-- PROMO -->
+        <!-- Promo -->
         {% set rent_pct = 0.0 %}
         {% set fee_pct = 0.0 %}
         {% for x in promos %}
@@ -300,7 +300,7 @@
                 <h3 class="head4">{% literal texts, 'type-apartamento-privado', L %}</h3>
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
-              <!-- >> BCN -->
+              <!--! >> BCN -->
               {% if location.id != 1 %}
                 <span>{% literal texts, 'price-desde', L %}</span>
                 {% if min < 99999 %}
@@ -312,7 +312,7 @@
                 {% endif %}
                 {% endif %}
               {% endif %}
-              <!-- << BCN -->
+              <!--! << BCN -->
               </div>
             </div>
           </div>

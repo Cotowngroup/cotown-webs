@@ -28,7 +28,7 @@
 
 <section class="card-room pure-u-1 pure-u-lg-22-24">
 
-  <!-- LEFT -->
+  <!-- Left -->
   <div class="left-carousel pure-u-1 pure-u-lg-11-24">
    
     {% if subtype_texts.Tour %}
@@ -76,13 +76,13 @@
 
   </div>
 
-  <!-- RIGHT -->
+  <!-- Right -->
   <div class="right-data pure-u-11-12 pure-u-lg-11-24">
 
     <!-- Title -->
     <div class="title-favorite pure-u-1">
       <h3 class="head3">{{subtype_texts | translate('Name', L)}}</h3>
-      <!--
+      <!--!
       <em class="icon-heart"></em>
       -->
     </div>
@@ -93,7 +93,7 @@
     </div>
 
     <div class="option pure-u-1">
-    <!-- >> BCN -->
+    <!--! >> BCN -->
     {% if location.id != 1 %}
       {% for f in flats | find('id', 'eq', building.id) %}
       {% for t in f.Flat_subtypes | find('Code', 'eq', p.Code) %}
@@ -130,7 +130,7 @@
       {% endfor %}
       {% endfor %}
     {% endif %}
-    <!-- << BCN -->
+    <!--! << BCN -->
     </div> 
 
     <div id="{{p.Code}}" data-id="{{p.Code}}" class="pure-u-1 text-red"><p>...</p></div>
@@ -158,7 +158,7 @@
     </section>
 
     <div class="align-end pure-u-1">
-    <!-- >> BCN -->
+     <!--! >> BCN -->
     {% if location.id != 1 %}
       {% for f in flats | find('id', 'eq', building.id) %}
       {% for t in f.Flat_subtypes | find('Code', 'eq', p.Code) %}
@@ -195,7 +195,7 @@
       {% endfor %}
       {% endfor %}
     {% endif %}
-    <!-- << BCN -->
+    <!--! << BCN -->
     </div>
     
     {% if site != 'vanguard' %}
@@ -223,7 +223,7 @@
   </div>
 
   <!-- Expansion -->
-  <!--
+  <!--!
   <div class="description text pure-u-23-24">
       <div class="expansion pure-u-1">
         <p>{% literal texts, 'informacion-adicional-titulo', L %}</p>

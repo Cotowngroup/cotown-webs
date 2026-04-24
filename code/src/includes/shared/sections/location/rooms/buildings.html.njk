@@ -103,7 +103,7 @@
                     {% endif %}
                   </a>
 
-                  <!-- PROMO -->
+                  <!-- Promo -->
                   {% set rent_pct = 0.0 %}
                   {% set fee_pct = 0.0 %}
                   {% for x in promos %}
@@ -173,7 +173,7 @@
 
                     <!-- Habitacion-individual -->
                     {% if minI < 99999 %}
-                    <!-- >> BCN -->
+                    <!--! >> BCN -->
                     {% if location.id != 1 %}
                     <div class="room-type {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
                       <a href="{{root}}{{langs[L].folder}}/{{langs[L].pages[name].url}}-{{b.Name | slugify}}.html#I">
@@ -198,12 +198,12 @@
                       <div id="{{b.id}}_I" class="pure-u-1 text-red"><p>&nbsp;</p></div>
                     </div>
                     {% endif %}
-                    <!-- << BCN -->
+                    <!--! << BCN -->
                     {% endif %}
 
                     <!-- Habitacion-compartida -->
                     {% if minD < 99999 %}
-                    <!-- >> BCN -->
+                    <!--! >> BCN -->
                     {% if location.id != 1 %}
                     <div class="room-type {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
                       <a href="{{root}}{{langs[L].folder}}/{{langs[L].pages[name].url}}-{{b.Name | slugify}}.html#D">
@@ -228,12 +228,12 @@
                       <div id="{{b.id}}_D" class="pure-u-1 text-red"><p>&nbsp;</p></div>
                     </div>
                     {% endif %}
-                    <!-- << BCN -->
+                    <!--! << BCN -->
                     {% endif %}
 
                     <!-- Apartamento-privado -->
                     {% if minF < 99999 %}
-                    <!-- >> BCN -->
+                    <!--! >> BCN -->
                     {% if location.id != 1 %}
                     <div class="room-type {% if site == 'vanguard' %} vanguard {% else %} cotown {% endif %}">
                       <img src="{{root}}/assets/img/icono__hab_apartamento_privado.svg">
@@ -256,7 +256,7 @@
                       <div id="{{b.id}}_F" class="pure-u-1 text-red"><p>&nbsp;</p></div>
                     </div>
                     {% endif %}
-                    <!-- << BCN -->
+                    <!--! << BCN -->
                     {% endif %}
 
                   </div>
@@ -348,7 +348,7 @@
         </div>
         </a>
 
-        <!-- PROMO -->
+        <!-- Promo -->
         {% set rent_pct = 0.0 %}
         {% set fee_pct = 0.0 %}
         {% for x in promos %}
@@ -419,7 +419,7 @@
                 <div id="{{b.id}}_I" class="pure-u-1 text-red"><p>&nbsp;</p></div>
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
-              <!-- >> BCN -->
+              <!--! >> BCN -->
               {% if location.id != 1 %}
                 <span>{% literal texts, 'price-desde', L %}<span>
                 {% if minI <= disI %}
@@ -434,7 +434,7 @@
                   {% literal texts, 'price-mas', L %}
                 </button>
               {% endif %}
-              <!-- << BCN -->
+              <!--! << BCN -->
               </div>
             </div>
             {% endif %}
@@ -450,7 +450,7 @@
                 <div id="{{b.id}}_D" class="pure-u-1 text-red"><p>&nbsp;</p></div>
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
-              <!-- >> BCN -->
+              <!--! >> BCN -->
               {% if location.id != 1 %}
                 <span>{% literal texts, 'price-desde', L %}<span>
                 {% if minD <= disD %}
@@ -465,7 +465,7 @@
                   {% literal texts, 'price-mas', L %}
                 </button>
               {% endif %}
-              <!-- << BCN -->
+              <!--! << BCN -->
               </div>
             </div>
             {% endif %}
@@ -481,7 +481,7 @@
                 <div id="{{b.id}}_F" class="pure-u-1 text-red"><p>&nbsp;</p></div>
               </div>              
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
-              <!-- >> BCN -->
+              <!--! >> BCN -->
               {% if location.id != 1 %}
                 <span>{% literal texts, 'price-desde', L %}<span>
                 {% if minF <= disF %}
@@ -496,7 +496,7 @@
                   {% literal texts, 'price-mas', L %}
                 </button>
               {% endif %}
-              <!-- << BCN -->
+              <!--! << BCN -->
               </div>
             </div>
             {% endif %}
