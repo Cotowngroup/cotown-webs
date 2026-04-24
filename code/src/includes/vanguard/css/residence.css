@@ -91,7 +91,7 @@
   line-height: 150%;
 }
 .first .first-contain .text-first a {
-	color: var(--primary);
+	color: var(--primary-old);
 }
 .first .first-contain .flat-services {
   text-align: center;

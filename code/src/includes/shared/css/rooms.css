@@ -91,7 +91,7 @@
   line-height: 1.5;
 }
 .first .first-contain .text-first a {
-	color: var(--primary);
+	color: var(--primary-old);
 }
 .first .first-contain .flat-services {
   text-align: center;
@@ -733,7 +733,9 @@ margin-bottom: 0.5em;
 .first .first-contain.cotown .after-slide .text-first {
   font-size: var(--text);
 }
-.first .first-contain.cotown .after-slide .text-first p {
+.first .first-contain.cotown .after-slide .text-first p,
+.first .first-contain.cotown .after-slide .text-first li,
+.first .first-contain.cotown .after-slide .text-first a {
   font-size: var(--text);
 }
 .first .first-contain.cotown .after-slide .text-first ul {
