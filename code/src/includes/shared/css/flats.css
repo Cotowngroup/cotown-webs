@@ -860,9 +860,13 @@ main.flat.cotown .apartments .all-rooms .card-room .right-data .title-favorite p
 font-size: var(--text-title);
 font-weight: var(--semibold);
 }
-main.flat.cotown .apartments .all-rooms .card-room .right-data .text p {
+main.flat.cotown .apartments .all-rooms .card-room .right-data .text p,
+main.flat.cotown .apartments .all-rooms .card-room .right-data .text li {
 font-size: var(--text);
 font-weight: var(--regular);
+}
+main.flat.cotown .apartments .all-rooms .card-room .right-data .text a {
+    color: var(--primary-old);
 }
 main.flat.cotown .apartments .all-rooms .card-room .right-data .share .title h4 {
 font-size: var(--mini-title);

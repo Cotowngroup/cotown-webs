@@ -95,6 +95,10 @@
     {% set matches = place_types[p.Code].Texts | find ('Building_id', 'eq', null) | find ('Location_id', 'eq', null) %}
     {% if matches | length > 0 %}{% set default_text = matches | first %}{% else %}{% set default_text = None %}{% endif %}
     {{ (building_text or location_text or default_text) | translate('Description', L) | markdown | safe }}
+    {% if building.District.Location.id == 1 %}
+    {% set legal = texts['texto-legal'][L].replace('{legal}', 'https://back.cotown.com/api/v1/legal/ap/' + siteid + '/' + building.Code + '.pdf') %}
+    {{ legal | markdown | safe }}
+    {% endif %}
     </div>
 
     <form class="pure-form">

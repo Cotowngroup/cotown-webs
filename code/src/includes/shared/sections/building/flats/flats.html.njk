@@ -90,6 +90,10 @@
     <!-- Description -->
     <div class="text pure-u-1">
     {{ subtype_texts | translate('Description', L) | markdown | safe }}
+    {% if building.District.Location.id == 1 %}
+    {% set legal = texts['texto-legal'][L].replace('{legal}', 'https://back.cotown.com/api/v1/legal/ap/' + siteid + '/' + building.Code + '.pdf') %}
+    {{ legal | markdown | safe }}
+    {% endif %}
     </div>
 
     <div class="option pure-u-1">
