@@ -866,7 +866,8 @@ font-size: var(--text-title);
 font-weight: var(--semibold);
 }
 main.flat.cotown .apartments .all-rooms .card-room .right-data .text p,
-main.flat.cotown .apartments .all-rooms .card-room .right-data .text li {
+main.flat.cotown .apartments .all-rooms .card-room .right-data .text li,
+main.flat.cotown .apartments .all-rooms .card-room .right-data .text a {
 font-size: var(--text);
 font-weight: var(--regular);
 }
