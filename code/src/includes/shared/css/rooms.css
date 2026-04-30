@@ -791,7 +791,8 @@ main.flat.cotown .rooms .all-rooms .card-room .right-data .title-favorite p {
   font-weight: var(--semibold);
 }
 main.flat.cotown .rooms .all-rooms .card-room .right-data .text p,
-main.flat.cotown .rooms .all-rooms .card-room .right-data .text li {
+main.flat.cotown .rooms .all-rooms .card-room .right-data .text li,
+main.flat.cotown .rooms .all-rooms .card-room .right-data .text a {
   font-size: var(--text);
   font-weight: var(--regular);
 }
