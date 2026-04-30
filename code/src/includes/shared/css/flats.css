@@ -268,10 +268,15 @@
 	color: var(--white);
 }
 
-.right-data .text p {
+.right-data .text p,
+.right-data .text li,
+.right-data .text a {
 	font-size: 16px;
 	line-height: 150%;
 	color: var(--white);
+}
+.right-data .text a {
+	color: var(--footer-text);
 }
 
 .right-data .option {

@@ -254,9 +254,14 @@
   font-size: 18px;
   cursor: pointer;
 }
-.right-data .text p {
+.right-data .text p,
+.right-data .text li,
+.right-data .text a {
   font-size: 16px;
   line-height: 1.5;
+}
+.right-data .text a {
+  color: var(--primary-old)
 }
 .right-data .option {
   display: flex;

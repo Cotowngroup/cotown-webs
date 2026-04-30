@@ -98,7 +98,7 @@
 
     <div class="option pure-u-1">
     <!--! >> BCN -->
-    {% if location.id != 1 %}
+    {% if building.District.Location.id != 1 %}
       {% for f in flats | find('id', 'eq', building.id) %}
       {% for t in f.Flat_subtypes | find('Code', 'eq', p.Code) %}
       {% if loop.index == 1 %}      
@@ -163,7 +163,7 @@
 
     <div class="align-end pure-u-1">
      <!--! >> BCN -->
-    {% if location.id != 1 %}
+    {% if building.District.Location.id != 1 %}
       {% for f in flats | find('id', 'eq', building.id) %}
       {% for t in f.Flat_subtypes | find('Code', 'eq', p.Code) %}
       {% if loop.index == 1 %}
