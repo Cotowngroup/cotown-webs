@@ -12,7 +12,7 @@
   {% set rent_pct = 0.0 %}
   {% set fee_pct = 0.0 %}
   {% for x in promos %}
-    {% if x.building == building.id and (not x.flat_type or x.flat_type | slice(0, 3) != 'APT') and (not x.place_type or x.place_type | slice(0, 1) != p.Code[0]) %}
+    {% if x.building == building.id and (not x.flat_type or x.flat_type.slice(0, 3) != 'APT') and (not x.place_type or x.place_type.slice(0, 1) == p.Code[0]) %}
       {% if x.Value_rent_pct | float < rent_pct  %}
         {% set rent_pct = x.Value_rent_pct | float %}
       {% endif %}
