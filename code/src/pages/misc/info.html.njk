@@ -110,7 +110,7 @@ tags: page
         <div class="pure-u-1 pure-u-md-1-2">
           <div class="campo">
           <label class="label">{% literal texts, 'form-motivo', L %}</label>
-          <select class="select" type="select" id="reason" name="reason" required onchange="leisure_check();">
+          <select class="select" type="select" id="reason" name="reason" required>
             <option value="" disabled selected>{% literal texts, 'form-motivo', L %}</option>
             {% for r in reasons %}
               <option value="{{r.id}}">{{r | translate('Name', L)}}</option>
@@ -119,18 +119,10 @@ tags: page
           </div>
         </div>
 
-        <div id="leisure_div" class="pure-u-1" style="display:none;">
-          <div class="campo checkbox">
-            <input id="leisure" name="leisure" type="checkbox" value="1"/>
-            <label for="leisure" class="pure-checkbox">{% if L == 'es' %}Confirmo que viajo por motivos exclusivamente recreativos/vacacionales y que facilitaré la documentación requerida.{% else %}I confirm that I am travelling for exclusively recreational/holiday purposes and that I will provide the required documentation.{% endif %}
-            </label>
-          </div>
-        </div>
-
         <div class="pure-u-1 pure-u-md-1-2">
           <div class="campo">
           <label class="label">{% literal texts, 'form-ciudad', L %}</label>
-          <select class="select" type="select" id="city" name="city" required onchange="get_buildings(this.value);">
+          <select class="select" type="select" id="city" name="city" required onchange="get_buildings(this.value); get_reasons(this.value);">
             <option value="" disabled selected>{% literal texts, 'form-ciudad', L %}</option>
             {% for l in locations %}
             {% if buildings | find('District.Location.id', 'eq', l.id) | find('Building_type_id', 'lt', 4) | length > 0 %}
@@ -245,6 +237,16 @@ var room_types = [
 {% endfor-%}
 ];
 
+// Reasons list
+var reasons = [
+{% for r in reasons -%}
+{id:'{{r.id}}',name:'{{r | translate('Name', L)}}'},
+{% endfor -%}
+];
+
+// Placeholder del desplegable de motivos
+var reason_label = document.getElementById('reason').options[0].text;
+
 // Populate buildings select
 function get_buildings(value) {
 
@@ -298,15 +300,48 @@ function get_types(value) {
   }
 }
 
-// Estancia recreativa: declaracion obligatoria (motivo 5 = Vacaciones - recreativo)
-function leisure_check() {
-  div = document.getElementById('leisure_div');
-  check = document.getElementById('leisure');
-  holiday = (document.getElementById('reason').value == '5');
-  div.style.display = holiday ? 'block' : 'none';
-  check.required = holiday;
-  if (!holiday)
-    check.checked = false;
+// Populate reasons select
+// En Cotown, Barcelona solo admite estancias recreativas (motivo 5)
+function get_reasons(value) {
+
+  // Get city
+  if (!value)
+    value = document.getElementById('city').value;
+
+  // Motivos restringidos?
+{% if site == 'cotown' %}
+  only_leisure = (value == 'Barcelona');
+{% else %}
+  only_leisure = false;
+{% endif %}
+
+  // Empty list, keep current selection
+  list = document.getElementById('reason');
+  current = list.value;
+  list.innerHTML = "";
+
+  // Placeholder
+  if (!only_leisure) {
+    var opt = document.createElement("option");
+    opt.value = "";
+    opt.text = reason_label;
+    opt.disabled = true;
+    list.add(opt);
+  }
+
+  // Fill reason list
+  for (var i = 0; i < reasons.length; i++) {
+    if (only_leisure && reasons[i].id != '5')
+      continue;
+    var opt = document.createElement("option");
+    opt.value = reasons[i].id;
+    opt.text = reasons[i].name;
+    list.add(opt);
+  }
+
+  // Restore selection
+  list.value = only_leisure ? '5' : current;
+
 }
 
 // Budget change
@@ -351,7 +386,7 @@ get_buildings(null);
 document.getElementById('building').value = sessionStorage.getItem('building');
 get_types(null);
 document.getElementById('place_type').value = sessionStorage.getItem('book_type');
-leisure_check();
+get_reasons(null);
 {% include "shared/js/pipedrive.js" %}
 {% endset %}<script>{{ script | jsmin | safe }}</script>
 {% endblock %}
