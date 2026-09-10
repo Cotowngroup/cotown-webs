@@ -245,7 +245,7 @@ var reasons = [
 ];
 
 // Placeholder del desplegable de motivos
-var reason_label = document.getElementById('reason').options[0].text;
+var reason_label = document.getElementById('reason').options[0].innerHTML;
 
 // Populate buildings select
 function get_buildings(value) {
@@ -324,18 +324,18 @@ function get_reasons(value) {
   if (!only_leisure) {
     var opt = document.createElement("option");
     opt.value = "";
-    opt.text = reason_label;
+    opt.innerHTML = reason_label;
     opt.disabled = true;
     list.add(opt);
   }
 
-  // Fill reason list
+  // Fill reason list (los nombres vienen escapados por nunjucks: innerHTML, no text)
   for (var i = 0; i < reasons.length; i++) {
     if (only_leisure && reasons[i].id != '5')
       continue;
     var opt = document.createElement("option");
     opt.value = reasons[i].id;
-    opt.text = reasons[i].name;
+    opt.innerHTML = reasons[i].name;
     list.add(opt);
   }
 
