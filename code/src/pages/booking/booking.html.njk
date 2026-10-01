@@ -249,7 +249,7 @@ set_field("book_city_id", "");
 set_field("book_acom", "");
 set_field("book_room", "");
 set_field("book_checkin", checkin);
-set_field("book_checkout", checkin);
+set_field("book_checkout", checkout);
 set_field("book_dates", format_dates(checkin, checkout, "{{L}}"));
 {% endset %}<script>{{ script | jsmin | safe }}</script>
 {% endblock %}
