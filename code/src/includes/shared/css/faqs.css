@@ -263,7 +263,7 @@ main.cotown .container-main .faqs-container {
 main.cotown .container-main .faqs-container .faq {
 	margin-bottom: 2em;
 	padding-bottom: 2em;
-	background-color: var(--new-bg);
+	background-color: var(--faq-bg);
 	display: flex;
 	flex-flow: column;
 	justify-content: center;

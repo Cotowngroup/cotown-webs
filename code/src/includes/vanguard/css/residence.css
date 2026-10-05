@@ -832,10 +832,10 @@ margin-bottom: 0.5em;
   align-items: flex-start;
 }
 
-/* Fondos alternos: FAQs en beige, barrio en blanco.
+/* Fondos: FAQs segun la web (--faq-bg), barrio en blanco.
    En apartamentos privados (.last.prive) el barrio conserva su color \*/
 .last .last-zone .faqs-container {
-  background-color: var(--new-bg);
+  background-color: var(--faq-bg);
 }
 .last:not(.prive) .last-zone .district-container {
   background-color: var(--white);

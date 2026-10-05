@@ -1517,5 +1517,5 @@ main.location.cotown .faq-content .description.text .expansion label[class^="tab
 
 /* Fondo alterno: servicios en blanco, FAQs en beige, pie oscuro \*/
 main.location section.faqs-container {
-  background-color: var(--new-bg);
+  background-color: var(--faq-bg);
 }
