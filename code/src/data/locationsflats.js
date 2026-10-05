@@ -1,6 +1,7 @@
 module.exports = async (config) => {
 
   const gql = require('./graphql');
+  const unlocked = require('./unlocked');
   const QUERY = `
 query data ($id: Int) {
     data: Geo_LocationList (
@@ -47,5 +48,5 @@ query data ($id: Int) {
     }
   }`;
   const data = await gql(QUERY, config, 'locations flats');
-  return data.data;
+  return await unlocked(data.data, config, 'locations');
 };

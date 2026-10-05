@@ -1,6 +1,7 @@
 module.exports = async (config) => {
 
   const gql = require('./graphql');
+  const unlocked = require('./unlocked');
   const QUERY  = `
   query data ($id: Int) {
     data: Building_BuildingList ( 
@@ -91,7 +92,8 @@ module.exports = async (config) => {
     }
   }`;
   const data = await gql(QUERY, config, 'buildings flats');
-  return data.data.map(building =>
+  const visible = await unlocked(data.data, config, 'buildings');
+  return visible.map(building =>
     building.Code === 'SAR326'
       ? { ...building, Building_type_id: 3 }
       : building
