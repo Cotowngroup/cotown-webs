@@ -98,7 +98,7 @@
 
     <div class="option pure-u-1">
     <!--! >> BCN -->
-    {% if building.District.Location.id != 999 %}
+    {% if building.District.Location.id != 999 and not (site == 'vanguard' and building.District.Location.id == 4) %}
       {% for f in flats | find('id', 'eq', building.id) %}
       {% for t in f.Flat_subtypes | find('Code', 'eq', p.Code) %}
       {% if loop.index == 1 %}      
@@ -163,7 +163,7 @@
 
     <div class="align-end pure-u-1">
      <!--! >> BCN -->
-    {% if building.District.Location.id != 999 %}
+    {% if building.District.Location.id != 999 and not (site == 'vanguard' and building.District.Location.id == 4) %}
       {% for f in flats | find('id', 'eq', building.id) %}
       {% for t in f.Flat_subtypes | find('Code', 'eq', p.Code) %}
       {% if loop.index == 1 %}
@@ -210,9 +210,13 @@
       <button id="btn-check-{{p.Code}}" name="btn-check" class="invisible btn-secondary" onclick="go_check();">
         {% literal texts, 'button-solicitar', L %}
       </button>
+      <!--! >> BIO -->
+      {% if not (site == 'vanguard' and building.District.Location.id == 4) %}
       <button id="btn-book-{{p.Code}}" name="btn-book" class="btn-secondary" onclick="go_book({{p.id}}, {{p.Flat_type_id}}, '{{p.Code}}', 'ap');">
         {% literal texts, 'button-reservar', L %}
       </button>
+      {% endif %}
+      <!--! << BIO -->
       <button id="btn-info-{{p.Code}}" name="btn-info" class="{% if site == 'vanguard' %} btn-primary {% else %} btn-text {% endif %}" onclick="go_info({{p.id}}, {{p.Flat_type_id}}, '{{p.Code}}');">
         {% literal texts, 'button-mas-info', L %}
         {% if site != 'vanguard' %}

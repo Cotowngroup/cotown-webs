@@ -60,7 +60,7 @@
         <div class="info">
           <div class="address">{{b.Name}}</div>
           <!--! >> BCN -->
-          {% if location.id != 1 %}
+          {% if location.id != 1 and not (site == 'vanguard' and location.id == 4) %}
           <div class="from">{% literal texts, 'price-desde', L %}</div>
           <div class="price">{{min|number(L)}} €/{% literal texts, 'price-mes', L %}</div>
           {% endif %}

@@ -195,7 +195,7 @@
                   {% if min < 99999 %}
                   <div class="price">
                   <!--! >> BCN -->
-                  {% if location.id != 1 %}
+                  {% if location.id != 1 and not (site == 'vanguard' and location.id == 4) %}
                     <p>{% literal texts, 'price-desde', L %}</p>
                     {% if dis <= min %}
                     <h4 class="head5">
@@ -301,7 +301,7 @@
               </div>
               <div class="p-container pure-u-9-24 pure-u-lg-7-24">
               <!--! >> BCN -->
-              {% if location.id != 1 %}
+              {% if location.id != 1 and not (site == 'vanguard' and location.id == 4) %}
                 <span>{% literal texts, 'price-desde', L %}</span>
                 {% if min < 99999 %}
                 {% if min <= dis %}

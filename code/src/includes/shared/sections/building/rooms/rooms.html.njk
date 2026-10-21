@@ -122,7 +122,7 @@
           </div>
           <div class="right">
           <!--! >> BCN -->
-          {% if building.District.Location.id != 999 %}
+          {% if building.District.Location.id != 999 and not (site == 'vanguard' and building.District.Location.id == 4) %}
             {% if f.Rent_pct %}{% set pct = f.Rent_pct %}{% else %}{% set pct = 1.0 %}{% endif %}
             {% if pct != 1 %}
             <p data-price="f"  class="right linethru hidden">{% literal texts, 'price-desde', L %} {{f.Rent_long       |round|number(L)}} €/{% literal texts, 'price-mes', L %}</p>
@@ -191,9 +191,13 @@
       <button id="btn-check-{{p.Code}}" name="btn-check" class="invisible btn-secondary" onclick="go_check();">
         {% literal texts, 'button-solicitar', L %}
       </button>
+      <!--! >> BIO -->
+      {% if not (site == 'vanguard' and building.District.Location.id == 4) %}
       <button id="btn-book-{{p.Code}}" name="btn-book" class="invisible btn-secondary" onclick="go_book({{p.id}}, -1, '{{p.Code}}', 'pc');">
         {% literal texts, 'button-reservar', L %}
       </button>
+      {% endif %}
+      <!--! << BIO -->
       <button id="btn-info-{{p.Code}}" name="btn-info" class="{% if site == 'vanguard' %} btn-primary {% else %} btn-text {% endif %}" onclick="go_info({{p.id}}, -1, '{{p.Code}}');">
         {% literal texts, 'button-mas-info', L %}        		
         {% if site == 'vanguard' %}
